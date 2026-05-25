@@ -3,38 +3,24 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Natijalar — InsightPlus</title>
-  <meta name="description" content="InsightPlus talabalarining IELTS, CEFR va IT bo‘yicha natijalari." />
+  <title>Natijalar galereyasi — InsightPlus</title>
+  <meta name="description" content="InsightPlus o‘quvchilarining IELTS, CEFR, sertifikat va esdalik suratlari galereyasi." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-  <!-- Favicons -->
   <link rel="icon" href="/favicon.ico" sizes="any" />
   <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png" />
   <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png" />
-  <link rel="icon" type="image/png" sizes="48x48" href="/favicons/favicon-48x48.png" />
-  <link rel="icon" type="image/png" sizes="512x512" href="/favicons/favicon-512x512.png" />
-
-  <!-- Apple / Mobile -->
   <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png" />
-
-  <!-- Android / PWA -->
-  <link rel="icon" type="image/png" sizes="192x192" href="/favicons/android-chrome-192x192.png" />
-  <link rel="icon" type="image/png" sizes="512x512" href="/favicons/android-chrome-512x512.png" />
   <link rel="manifest" href="/favicons/site.webmanifest" />
-
-  <!-- Theme -->
   <meta name="theme-color" content="#E7FF56" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="InsightPlus" />
-  <meta property="og:site_name" content="InsightPlus" />
-  <meta property="og:description" content="InsightPlus talabalarining IELTS, CEFR va IT bo‘yicha natijalari." />
+  <meta property="og:title" content="Natijalar galereyasi — InsightPlus" />
+  <meta property="og:description" content="IELTS, CEFR, sertifikat va InsightPlus xotiralari." />
   <meta property="og:image" content="./favicons/android-chrome-512x512.png" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="InsightPlus" />
-  <meta name="twitter:image" content="./favicons/android-chrome-512x512.png" />
   <script>
     tailwind.config = {
       theme: {
@@ -53,17 +39,19 @@
     body { font-family: 'DM Sans', sans-serif; color: #0F172A; background: #F8FAFC; }
     .font-display { font-family: 'Syne', sans-serif; }
     .container-x { width: min(1280px, calc(100% - 32px)); margin-inline: auto; }
-    .noise { background-image: radial-gradient(circle at 15% 15%, rgba(48,107,243,0.15), transparent 34%), radial-gradient(circle at 85% 5%, rgba(231,255,86,0.42), transparent 28%), radial-gradient(circle at 80% 88%, rgba(48,107,243,0.12), transparent 35%); }
+    .noise { background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%); }
     .nav-link { position: relative; }
     .nav-link::after { content: ''; position: absolute; left: 0; bottom: -8px; width: 0; height: 2px; border-radius: 999px; background: #306BF3; transition: width .25s ease; }
     .nav-link:hover::after, .nav-link.active::after { width: 100%; }
     .reveal { opacity: 0; transform: translateY(18px); transition: .65s ease; }
     .reveal.show { opacity: 1; transform: translateY(0); }
-    .marquee { display: flex; width: max-content; animation: marquee 28s linear infinite; }
-    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    .gallery-photo { aspect-ratio: 4 / 5; overflow: hidden; border-radius: 1rem; border: 1px solid rgba(226,232,240,.9); background: #fff; }
+    .gallery-photo img { width: 100%; height: 100%; object-fit: cover; }
+    .gallery-tile { min-height: 210px; background: #F8FAFC; }
+    .score-badge { box-shadow: 0 8px 18px rgba(15,23,42,.08); }
+    .result-card { border: 1px solid #E2E8F0; background: #fff; border-radius: 1.25rem; padding: 1.25rem; }
+    main section[id] { scroll-margin-top: 96px; }
     h1, h2, h3, p, a, button, summary, span { overflow-wrap: break-word; }
-    summary { list-style: none; }
-    summary::-webkit-details-marker { display: none; }
     @media (max-width: 639px) {
       .container-x { width: min(100% - 24px, 1280px); }
       h1 { font-size: clamp(2rem, 9.5vw, 2.45rem) !important; line-height: 1.08 !important; letter-spacing: 0 !important; }
@@ -72,37 +60,31 @@
       p { line-height: 1.65; }
       section { padding-block: clamp(3.5rem, 12vw, 5rem); }
       .page-hero { padding-top: 7rem !important; }
-      article, details, blockquote, #contact-modal .relative { border-radius: 1.25rem !important; }
+      article, #contact-modal .relative { border-radius: 1.25rem !important; }
       .rounded-[34px], .rounded-[38px] { border-radius: 1.5rem !important; }
       #mobile-drawer { left: 0.75rem; right: 0.75rem; top: 5.75rem; max-height: calc(100dvh - 7rem); overflow-y: auto; }
       .fixed.inset-x-4.bottom-4 { left: 0.75rem !important; right: 0.75rem !important; }
-      summary { align-items: flex-start !important; gap: .75rem; line-height: 1.35; }
-      summary .material-symbols-outlined { flex: 0 0 1.5rem; width: 1.5rem; overflow-wrap: normal; }
-      .marquee > div { gap: 1.75rem !important; font-size: 1rem !important; white-space: nowrap; }
     }
     @media (max-width: 374px) {
       .container-x { width: min(100% - 20px, 1280px); }
       header nav { height: 4.5rem !important; }
       header a.font-display { font-size: 1.35rem !important; }
-      h1 { font-size: clamp(1.9rem, 10.5vw, 2.35rem) !important; }
-      h2 { font-size: clamp(1.6rem, 7.5vw, 2rem) !important; }
       .page-hero { padding-top: 6rem !important; }
-      .fixed.inset-x-4.bottom-4 { gap: .5rem !important; }
     }
-    @media (prefers-reduced-motion: reduce) { .marquee { animation: none; } .reveal { opacity: 1; transform: none; } html { scroll-behavior: auto; } }
+    @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } html { scroll-behavior: auto; } }
   </style>
 </head>
 
-<body class="antialiased selection:bg-lime selection:text-ink pb-24 md:pb-0 ">
+<body class="antialiased selection:bg-lime selection:text-ink pb-24 md:pb-0">
   <header id="site-header" class="fixed inset-x-0 top-0 z-50 border-b border-white/20 bg-white/75 backdrop-blur-2xl transition-shadow">
     <nav class="container-x flex h-20 items-center justify-between">
-      <a href="./index.html" class="font-display text-2xl font-extrabold tracking-[-0.04em] text-primary" aria-label="InsightPlus bosh sahifa">InsightPlus</a>
+      <a href="./index.html" class="font-display text-2xl font-extrabold text-primary" aria-label="InsightPlus bosh sahifa">InsightPlus</a>
       <div class="hidden items-center gap-9 lg:flex">
-        <a class="nav-link text-sm font-semibold text-slate-700 hover:text-primary " href="./about.html">Biz haqimizda</a>
-        <a class="nav-link text-sm font-semibold text-slate-700 hover:text-primary active text-primary" href="./results.html">Natijalar</a>
-        <a class="nav-link text-sm font-semibold text-slate-700 hover:text-primary " href="./price.html">Narxlar</a>
-        <a class="nav-link text-sm font-semibold text-slate-700 hover:text-primary " href="./mockcefrcoming.html">Mock CEFR</a>
-        <a class="nav-link text-sm font-semibold text-slate-700 hover:text-primary " href="./location.html">Manzil</a>
+        <a class="nav-link text-sm font-semibold text-slate-700 hover:text-primary" href="./about.html">Biz haqimizda</a>
+        <a class="nav-link active text-sm font-semibold text-primary hover:text-primary" href="./results.html">Natijalar</a>
+        <a class="nav-link text-sm font-semibold text-slate-700 hover:text-primary" href="./price.html">Narxlar</a>
+        <a class="nav-link text-sm font-semibold text-slate-700 hover:text-primary" href="./mockcefrcoming.html">Mock CEFR</a>
+        <a class="nav-link text-sm font-semibold text-slate-700 hover:text-primary" href="./location.html">Manzil</a>
       </div>
       <div class="flex items-center gap-3">
         <button data-open-contact class="hidden rounded-2xl bg-ink px-6 py-3 text-sm font-bold text-white shadow-soft transition hover:-translate-y-0.5 hover:bg-primary focus:outline-none focus:ring-4 focus:ring-primary/20 sm:inline-flex">Bepul maslahat</button>
@@ -116,14 +98,12 @@
   <div id="mobile-backdrop" class="fixed inset-0 z-[80] hidden bg-ink/45 backdrop-blur-sm"></div>
   <aside id="mobile-drawer" class="fixed left-4 right-4 top-24 z-[90] hidden rounded-[28px] border border-line bg-white p-6 shadow-2xl lg:hidden">
     <div class="mb-7 flex items-center justify-between">
-      <a href="./index.html" class="font-display text-2xl font-extrabold tracking-[-0.04em] text-primary">InsightPlus</a>
-      <button id="mobile-menu-close" class="grid h-10 w-10 place-items-center rounded-xl bg-slate-100 focus:outline-none focus:ring-4 focus:ring-primary/20" aria-label="Menyuni yopish">
-        <span class="material-symbols-outlined">close</span>
-      </button>
+      <a href="./index.html" class="font-display text-2xl font-extrabold text-primary">InsightPlus</a>
+      <button id="mobile-menu-close" class="grid h-10 w-10 place-items-center rounded-xl bg-slate-100 focus:outline-none focus:ring-4 focus:ring-primary/20" aria-label="Menyuni yopish"><span class="material-symbols-outlined">close</span></button>
     </div>
     <div class="grid gap-3">
       <a class="mobile-link rounded-2xl px-4 py-3 font-bold text-slate-700 hover:bg-skysoft hover:text-primary" href="./about.html">Biz haqimizda</a>
-      <a class="mobile-link rounded-2xl px-4 py-3 font-bold bg-skysoft text-primary hover:bg-skysoft hover:text-primary" href="./results.html">Natijalar</a>
+      <a class="mobile-link rounded-2xl bg-skysoft px-4 py-3 font-bold text-primary hover:bg-skysoft hover:text-primary" href="./results.html">Natijalar</a>
       <a class="mobile-link rounded-2xl px-4 py-3 font-bold text-slate-700 hover:bg-skysoft hover:text-primary" href="./price.html">Narxlar</a>
       <a class="mobile-link rounded-2xl px-4 py-3 font-bold text-slate-700 hover:bg-skysoft hover:text-primary" href="./mockcefrcoming.html">Mock CEFR</a>
       <a class="mobile-link rounded-2xl px-4 py-3 font-bold text-slate-700 hover:bg-skysoft hover:text-primary" href="./location.html">Manzil</a>
@@ -131,47 +111,365 @@
     </div>
   </aside>
 
-<main>
-    <section class="noise page-hero relative overflow-hidden pt-32 pb-14 md:pt-36 md:pb-20">
-      <div class="container-x text-center">
-        <span class="inline-flex items-center gap-2 rounded-full border border-primary/15 bg-white/80 px-4 py-2 text-xs font-extrabold uppercase tracking-[0.16em] text-primary shadow-sm"><span class="h-2 w-2 rounded-full bg-lime ring-4 ring-lime/30"></span> Muvaffaqiyat tarixi</span>
-        <h1 class="mx-auto mt-6 max-w-5xl font-display text-[42px] font-extrabold leading-[1.02] tracking-[-0.055em] text-ink sm:text-6xl lg:text-7xl">Bizning natijalarimiz — sizning kelajagingiz</h1>
-        <p class="mx-auto mt-6 max-w-2xl text-base leading-8 text-muted sm:text-lg">Talabalarimiz yuqori IELTS ballari, CEFR sertifikatlari va real portfolio loyihalari bilan o‘z yo‘lini boshlamoqda.</p>
-        
-      </div>
-    </section>
-    <section class="bg-primary py-14 text-white md:py-20">
-      <div class="container-x grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-        <div class="reveal rounded-[28px] border border-white/15 bg-white/10 p-6 text-center backdrop-blur"><p class="font-display text-4xl font-extrabold text-lime sm:text-5xl">7.5+</p><p class="mt-2 text-xs font-extrabold uppercase tracking-[0.16em] text-white/70">O‘rtacha IELTS</p></div>
-        <div class="reveal rounded-[28px] border border-white/15 bg-white/10 p-6 text-center backdrop-blur"><p class="font-display text-4xl font-extrabold text-lime sm:text-5xl">1200+</p><p class="mt-2 text-xs font-extrabold uppercase tracking-[0.16em] text-white/70">Bitiruvchi</p></div>
-        <div class="reveal rounded-[28px] border border-white/15 bg-white/10 p-6 text-center backdrop-blur"><p class="font-display text-4xl font-extrabold text-lime sm:text-5xl">94%</p><p class="mt-2 text-xs font-extrabold uppercase tracking-[0.16em] text-white/70">Maqsadga yetgan</p></div>
-        <div class="reveal rounded-[28px] border border-white/15 bg-white/10 p-6 text-center backdrop-blur"><p class="font-display text-4xl font-extrabold text-lime sm:text-5xl">50+</p><p class="mt-2 text-xs font-extrabold uppercase tracking-[0.16em] text-white/70">Hamkorlar</p></div>
-      </div>
-    </section>
-    <section class="bg-white py-16 md:py-24">
+  <main>
+    <section class="noise page-hero pt-24 pb-8 md:pt-28 md:pb-10">
       <div class="container-x">
-        <div class="reveal mb-12 flex flex-col justify-between gap-5 md:flex-row md:items-end"><div><span class="text-sm font-extrabold uppercase tracking-[0.16em] text-primary">IELTS galereyasi</span><h2 class="mt-3 font-display text-4xl font-extrabold tracking-[-0.04em] sm:text-5xl">Yuqori natija olgan talabalar</h2></div><a href="./location.html" class="inline-flex items-center gap-2 font-bold text-primary hover:underline md:shrink-0">Biz bilan bog‘lanish <span class="material-symbols-outlined">north_east</span></a></div>
-        <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          <article class="reveal rounded-[28px] border border-line bg-soft p-6 shadow-sm"><div class="mb-5 flex items-center justify-between"><div class="grid h-14 w-14 place-items-center rounded-2xl bg-primary text-white"><span class="material-symbols-outlined">workspace_premium</span></div><span class="rounded-2xl bg-lime px-4 py-2 font-display text-2xl font-extrabold text-ink">8.0</span></div><h3 class="font-display text-2xl font-bold tracking-[-0.03em]">Azizbek Nazarov</h3><p class="mt-4 text-sm leading-6 text-muted">“InsightPlus menga nafaqat til o‘rgatdi, balki o‘zimga bo‘lgan ishonchni berdi.”</p><div class="mt-5 flex text-primary"><span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1">star</span><span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1">star</span><span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1">star</span><span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1">star</span><span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1">star</span></div></article>
-          <article class="reveal rounded-[28px] border border-line bg-soft p-6 shadow-sm"><div class="mb-5 flex items-center justify-between"><div class="grid h-14 w-14 place-items-center rounded-2xl bg-primary text-white"><span class="material-symbols-outlined">workspace_premium</span></div><span class="rounded-2xl bg-lime px-4 py-2 font-display text-2xl font-extrabold text-ink">8.5</span></div><h3 class="font-display text-2xl font-bold tracking-[-0.03em]">Malika Ahmedova</h3><p class="mt-4 text-sm leading-6 text-muted">“Kurslar tizimli va juda samarali. Har bir dars yangi kashfiyot bo‘ldi.”</p><div class="mt-5 flex text-primary"><span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1">star</span><span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1">star</span><span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1">star</span><span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1">star</span><span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1">star</span></div></article>
-          <article class="reveal rounded-[28px] border border-line bg-soft p-6 shadow-sm"><div class="mb-5 flex items-center justify-between"><div class="grid h-14 w-14 place-items-center rounded-2xl bg-primary text-white"><span class="material-symbols-outlined">workspace_premium</span></div><span class="rounded-2xl bg-lime px-4 py-2 font-display text-2xl font-extrabold text-ink">7.5</span></div><h3 class="font-display text-2xl font-bold tracking-[-0.03em]">Jasur Umidov</h3><p class="mt-4 text-sm leading-6 text-muted">“O‘qituvchilarning qo‘llab-quvvatlashi meni maqsadimga yetakladi.”</p><div class="mt-5 flex text-primary"><span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1">star</span><span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1">star</span><span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1">star</span><span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1">star</span><span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1">star</span></div></article>
-          <article class="reveal rounded-[28px] border border-line bg-soft p-6 shadow-sm"><div class="mb-5 flex items-center justify-between"><div class="grid h-14 w-14 place-items-center rounded-2xl bg-primary text-white"><span class="material-symbols-outlined">workspace_premium</span></div><span class="rounded-2xl bg-lime px-4 py-2 font-display text-2xl font-extrabold text-ink">8.0</span></div><h3 class="font-display text-2xl font-bold tracking-[-0.03em]">Dilnoza Olimova</h3><p class="mt-4 text-sm leading-6 text-muted">“Speaking klublar va muhit shunchaki ajoyib. InsightPlusga rahmat.”</p><div class="mt-5 flex text-primary"><span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1">star</span><span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1">star</span><span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1">star</span><span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1">star</span><span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1">star</span></div></article>
+        <div class="grid gap-6 lg:grid-cols-[1fr_0.58fr] lg:items-end">
+          <div class="reveal">
+            <span class="text-sm font-extrabold uppercase tracking-[0.16em] text-primary">Natijalar arxivi</span>
+            <h1 class="mt-3 max-w-3xl font-display text-[34px] font-extrabold leading-[1.06] text-ink sm:text-4xl lg:text-5xl">O‘quvchilar natijalari galereyasi</h1>
+            <p class="mt-4 max-w-2xl text-base leading-7 text-muted">IELTS va CEFR natijalari bitta galereyada, yuqori natijalardan boshlab aralash joylashtirilgan.</p>
+          </div>
+        </div>
+        <div class="mt-6 flex flex-wrap gap-3">
+          <a href="#results-gallery" data-scroll-to="results-gallery" class="rounded-2xl bg-primary px-5 py-3 text-sm font-extrabold text-white">Natijalar</a>
+          <a href="#moments" data-scroll-to="moments" class="rounded-2xl border border-line bg-white px-5 py-3 text-sm font-extrabold text-ink hover:border-primary hover:text-primary">Esdalik suratlar</a>
         </div>
       </div>
     </section>
-    <section class="py-16 md:py-24"><div class="container-x grid gap-6 lg:grid-cols-[1.2fr_0.8fr]"><div class="reveal rounded-[34px] border border-line bg-white p-8 shadow-soft md:p-12"><span class="text-sm font-extrabold uppercase tracking-[0.16em] text-primary">Muvaffaqiyat tarixi</span><h2 class="mt-3 font-display text-4xl font-extrabold tracking-[-0.04em]">Orzudan haqiqatgacha</h2><p class="mt-5 text-lg leading-8 text-muted">Sardor IELTS 5.5 ball bilan boshlagan edi. 6 oylik intensiv tayyorgarlikdan so‘ng 8.5 ballni qo‘lga kiritdi va xalqaro grant dasturlariga hujjat topshirdi.</p></div><div class="reveal rounded-[34px] bg-primary p-8 text-white shadow-glow md:p-12"><span class="material-symbols-outlined text-5xl text-lime">format_quote</span><h3 class="mt-6 font-display text-3xl font-bold tracking-[-0.04em]">Sifatli taʼlim hamma uchun ochiq bo‘lishi kerak.</h3><p class="mt-8 text-sm font-bold uppercase tracking-[0.16em] text-white/60">InsightPlus jamoasi</p></div></div></section>
+
+    <section id="results-gallery" class="bg-white py-14 md:py-20">
+      <div class="container-x">
+        <div class="reveal mb-8 flex flex-col justify-between gap-3 md:flex-row md:items-end">
+          <div>
+            <span class="text-sm font-extrabold uppercase tracking-[0.16em] text-primary">IELTS va CEFR natijalar</span>
+            <h2 class="mt-2 font-display text-4xl font-extrabold sm:text-5xl">Yuqori natija olgan talabalar</h2>
+          </div>
+          <p class="max-w-lg text-sm leading-7 text-muted">IELTS va CEFR cardlari bir xil formatda: sertifikat rasmi, ism, natija va qisqa ko‘rsatkichlar.</p>
+        </div>
+        <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          <article class="reveal result-card p-4">
+            <div class="gallery-tile grid aspect-[9/16] place-items-center rounded-2xl border border-line p-5 text-center">
+              <span class="material-symbols-outlined text-5xl text-primary">workspace_premium</span>
+              <p class="mt-3 text-sm font-bold text-muted">IELTS sertifikat</p>
+            </div>
+            <div class="mt-4 flex items-start justify-between gap-3">
+              <div>
+                <h3 class="font-display text-xl font-bold">Malika Ahmedova</h3>
+                <p class="mt-1 text-sm font-semibold text-muted">Overall IELTS</p>
+              </div>
+              <span class="score-badge rounded-xl bg-lime text-ink px-3 py-2 font-display text-2xl font-extrabold">8.5</span>
+            </div>
+            <div class="mt-4 grid grid-cols-4 gap-2 text-center text-xs font-bold text-muted"><span>R 8.5</span><span>L 8.5</span><span>W 7.5</span><span>S 8.0</span></div>
+            <p class="mt-4 inline-flex rounded-full bg-soft px-3 py-1 text-xs font-extrabold uppercase text-primary">IELTS</p>
+          </article>
+          <article class="reveal result-card p-4">
+            <div class="gallery-tile grid aspect-[9/16] place-items-center rounded-2xl border border-line p-5 text-center">
+              <span class="material-symbols-outlined text-5xl text-primary">verified</span>
+              <p class="mt-3 text-sm font-bold text-muted">CEFR sertifikat</p>
+            </div>
+            <div class="mt-4 flex items-start justify-between gap-3">
+              <div>
+                <h3 class="font-display text-xl font-bold">Asadbek Murodov</h3>
+                <p class="mt-1 text-sm font-semibold text-muted">CEFR sertifikat</p>
+              </div>
+              <span class="score-badge rounded-xl bg-lime text-ink px-3 py-2 font-display text-2xl font-extrabold">C1</span>
+            </div>
+            <div class="mt-4 grid grid-cols-4 gap-2 text-center text-xs font-bold text-muted"><span>Reading</span><span>Listening</span><span>Writing</span><span>Speaking</span></div>
+            <p class="mt-4 inline-flex rounded-full bg-soft px-3 py-1 text-xs font-extrabold uppercase text-primary">CEFR</p>
+          </article>
+          <article class="reveal result-card p-4">
+            <div class="gallery-tile grid aspect-[9/16] place-items-center rounded-2xl border border-line p-5 text-center">
+              <span class="material-symbols-outlined text-5xl text-primary">verified</span>
+              <p class="mt-3 text-sm font-bold text-muted">Sertifikat rasmi</p>
+            </div>
+            <div class="mt-4 flex items-start justify-between gap-3">
+              <div>
+                <h3 class="font-display text-xl font-bold">Rayhona Qodirova</h3>
+                <p class="mt-1 text-sm font-semibold text-muted">CEFR sertifikat</p>
+              </div>
+              <span class="score-badge rounded-xl bg-lime text-ink px-3 py-2 font-display text-2xl font-extrabold">C1</span>
+            </div>
+            <div class="mt-4 grid grid-cols-4 gap-2 text-center text-xs font-bold text-muted"><span>Writing</span><span>Speaking</span><span>Grammar</span><span>CEFR</span></div>
+            <p class="mt-4 inline-flex rounded-full bg-soft px-3 py-1 text-xs font-extrabold uppercase text-primary">CEFR</p>
+          </article>
+          <article class="reveal result-card p-4">
+            <div class="gallery-tile grid aspect-[9/16] place-items-center rounded-2xl border border-line p-5 text-center">
+              <span class="material-symbols-outlined text-5xl text-primary">workspace_premium</span>
+              <p class="mt-3 text-sm font-bold text-muted">Sertifikat + talaba surati</p>
+            </div>
+            <div class="mt-4 flex items-start justify-between gap-3">
+              <div>
+                <h3 class="font-display text-xl font-bold">Sardor Karimov</h3>
+                <p class="mt-1 text-sm font-semibold text-muted">Overall IELTS</p>
+              </div>
+              <span class="score-badge rounded-xl bg-lime text-ink px-3 py-2 font-display text-2xl font-extrabold">8.0</span>
+            </div>
+            <div class="mt-4 grid grid-cols-4 gap-2 text-center text-xs font-bold text-muted"><span>R 8.5</span><span>L 8.0</span><span>W 7.0</span><span>S 7.5</span></div>
+            <p class="mt-4 inline-flex rounded-full bg-soft px-3 py-1 text-xs font-extrabold uppercase text-primary">IELTS</p>
+          </article>
+          <article class="reveal result-card p-4">
+            <div class="gallery-tile grid aspect-[9/16] place-items-center rounded-2xl border border-line p-5 text-center">
+              <span class="material-symbols-outlined text-5xl text-primary">workspace_premium</span>
+              <p class="mt-3 text-sm font-bold text-muted">IELTS sertifikat</p>
+            </div>
+            <div class="mt-4 flex items-start justify-between gap-3">
+              <div>
+                <h3 class="font-display text-xl font-bold">Azizbek Nazarov</h3>
+                <p class="mt-1 text-sm font-semibold text-muted">Overall IELTS</p>
+              </div>
+              <span class="score-badge rounded-xl bg-lime text-ink px-3 py-2 font-display text-2xl font-extrabold">8.0</span>
+            </div>
+            <div class="mt-4 grid grid-cols-4 gap-2 text-center text-xs font-bold text-muted"><span>R 8.0</span><span>L 8.5</span><span>W 7.0</span><span>S 8.0</span></div>
+            <p class="mt-4 inline-flex rounded-full bg-soft px-3 py-1 text-xs font-extrabold uppercase text-primary">IELTS</p>
+          </article>
+          <article class="reveal result-card p-4">
+            <div class="gallery-tile grid aspect-[9/16] place-items-center rounded-2xl border border-line p-5 text-center">
+              <span class="material-symbols-outlined text-5xl text-primary">verified</span>
+              <p class="mt-3 text-sm font-bold text-muted">CEFR sertifikat</p>
+            </div>
+            <div class="mt-4 flex items-start justify-between gap-3">
+              <div>
+                <h3 class="font-display text-xl font-bold">Ibrohim Saidov</h3>
+                <p class="mt-1 text-sm font-semibold text-muted">CEFR sertifikat</p>
+              </div>
+              <span class="score-badge rounded-xl bg-skysoft text-primary px-3 py-2 font-display text-2xl font-extrabold">B2</span>
+            </div>
+            <div class="mt-4 grid grid-cols-4 gap-2 text-center text-xs font-bold text-muted"><span>Mock</span><span>Grammar</span><span>Reading</span><span>CEFR</span></div>
+            <p class="mt-4 inline-flex rounded-full bg-soft px-3 py-1 text-xs font-extrabold uppercase text-primary">CEFR</p>
+          </article>
+          <article class="reveal result-card p-4">
+            <div class="gallery-tile grid aspect-[9/16] place-items-center rounded-2xl border border-line p-5 text-center">
+              <span class="material-symbols-outlined text-5xl text-primary">workspace_premium</span>
+              <p class="mt-3 text-sm font-bold text-muted">Natija kuni surati</p>
+            </div>
+            <div class="mt-4 flex items-start justify-between gap-3">
+              <div>
+                <h3 class="font-display text-xl font-bold">Dilnoza Olimova</h3>
+                <p class="mt-1 text-sm font-semibold text-muted">Overall IELTS</p>
+              </div>
+              <span class="score-badge rounded-xl bg-lime text-ink px-3 py-2 font-display text-2xl font-extrabold">7.5</span>
+            </div>
+            <div class="mt-4 grid grid-cols-4 gap-2 text-center text-xs font-bold text-muted"><span>R 8.0</span><span>L 7.5</span><span>W 7.0</span><span>S 7.5</span></div>
+            <p class="mt-4 inline-flex rounded-full bg-soft px-3 py-1 text-xs font-extrabold uppercase text-primary">IELTS</p>
+          </article>
+          <article class="reveal result-card p-4">
+            <div class="gallery-tile grid aspect-[9/16] place-items-center rounded-2xl border border-line p-5 text-center">
+              <span class="material-symbols-outlined text-5xl text-primary">verified</span>
+              <p class="mt-3 text-sm font-bold text-muted">Talaba + sertifikat</p>
+            </div>
+            <div class="mt-4 flex items-start justify-between gap-3">
+              <div>
+                <h3 class="font-display text-xl font-bold">Munisa Sharipova</h3>
+                <p class="mt-1 text-sm font-semibold text-muted">CEFR sertifikat</p>
+              </div>
+              <span class="score-badge rounded-xl bg-skysoft text-primary px-3 py-2 font-display text-2xl font-extrabold">B2</span>
+            </div>
+            <div class="mt-4 grid grid-cols-4 gap-2 text-center text-xs font-bold text-muted"><span>Mock</span><span>Writing</span><span>Speaking</span><span>CEFR</span></div>
+            <p class="mt-4 inline-flex rounded-full bg-soft px-3 py-1 text-xs font-extrabold uppercase text-primary">CEFR</p>
+          </article>
+          <article class="reveal result-card p-4">
+            <div class="gallery-tile grid aspect-[9/16] place-items-center rounded-2xl border border-line p-5 text-center">
+              <span class="material-symbols-outlined text-5xl text-primary">workspace_premium</span>
+              <p class="mt-3 text-sm font-bold text-muted">IELTS sertifikat</p>
+            </div>
+            <div class="mt-4 flex items-start justify-between gap-3">
+              <div>
+                <h3 class="font-display text-xl font-bold">Jasur Umidov</h3>
+                <p class="mt-1 text-sm font-semibold text-muted">Overall IELTS</p>
+              </div>
+              <span class="score-badge rounded-xl bg-lime text-ink px-3 py-2 font-display text-2xl font-extrabold">7.5</span>
+            </div>
+            <div class="mt-4 grid grid-cols-4 gap-2 text-center text-xs font-bold text-muted"><span>R 7.5</span><span>L 8.0</span><span>W 6.5</span><span>S 7.0</span></div>
+            <p class="mt-4 inline-flex rounded-full bg-soft px-3 py-1 text-xs font-extrabold uppercase text-primary">IELTS</p>
+          </article>
+          <article class="reveal result-card p-4">
+            <div class="gallery-tile grid aspect-[9/16] place-items-center rounded-2xl border border-line p-5 text-center">
+              <span class="material-symbols-outlined text-5xl text-primary">workspace_premium</span>
+              <p class="mt-3 text-sm font-bold text-muted">Sertifikat rasmi</p>
+            </div>
+            <div class="mt-4 flex items-start justify-between gap-3">
+              <div>
+                <h3 class="font-display text-xl font-bold">Madina Tursunova</h3>
+                <p class="mt-1 text-sm font-semibold text-muted">Overall IELTS</p>
+              </div>
+              <span class="score-badge rounded-xl bg-lime text-ink px-3 py-2 font-display text-2xl font-extrabold">7.5</span>
+            </div>
+            <div class="mt-4 grid grid-cols-4 gap-2 text-center text-xs font-bold text-muted"><span>R 8.0</span><span>L 7.5</span><span>W 7.0</span><span>S 7.0</span></div>
+            <p class="mt-4 inline-flex rounded-full bg-soft px-3 py-1 text-xs font-extrabold uppercase text-primary">IELTS</p>
+          </article>
+          <article class="reveal result-card p-4">
+            <div class="gallery-tile grid aspect-[9/16] place-items-center rounded-2xl border border-line p-5 text-center">
+              <span class="material-symbols-outlined text-5xl text-primary">verified</span>
+              <p class="mt-3 text-sm font-bold text-muted">Sertifikat rasmi</p>
+            </div>
+            <div class="mt-4 flex items-start justify-between gap-3">
+              <div>
+                <h3 class="font-display text-xl font-bold">Diyorbek Hamidov</h3>
+                <p class="mt-1 text-sm font-semibold text-muted">CEFR sertifikat</p>
+              </div>
+              <span class="score-badge rounded-xl bg-skysoft text-primary px-3 py-2 font-display text-2xl font-extrabold">B2</span>
+            </div>
+            <div class="mt-4 grid grid-cols-4 gap-2 text-center text-xs font-bold text-muted"><span>Intensiv</span><span>Mock</span><span>Reading</span><span>CEFR</span></div>
+            <p class="mt-4 inline-flex rounded-full bg-soft px-3 py-1 text-xs font-extrabold uppercase text-primary">CEFR</p>
+          </article>
+          <article class="reveal result-card p-4">
+            <div class="gallery-tile grid aspect-[9/16] place-items-center rounded-2xl border border-line p-5 text-center">
+              <span class="material-symbols-outlined text-5xl text-primary">workspace_premium</span>
+              <p class="mt-3 text-sm font-bold text-muted">Talaba surati</p>
+            </div>
+            <div class="mt-4 flex items-start justify-between gap-3">
+              <div>
+                <h3 class="font-display text-xl font-bold">Bekzod Rahimov</h3>
+                <p class="mt-1 text-sm font-semibold text-muted">Overall IELTS</p>
+              </div>
+              <span class="score-badge rounded-xl bg-lime text-ink px-3 py-2 font-display text-2xl font-extrabold">7.0</span>
+            </div>
+            <div class="mt-4 grid grid-cols-4 gap-2 text-center text-xs font-bold text-muted"><span>R 7.5</span><span>L 7.0</span><span>W 6.5</span><span>S 7.0</span></div>
+            <p class="mt-4 inline-flex rounded-full bg-soft px-3 py-1 text-xs font-extrabold uppercase text-primary">IELTS</p>
+          </article>
+          <article class="reveal result-card p-4">
+            <div class="gallery-tile grid aspect-[9/16] place-items-center rounded-2xl border border-line p-5 text-center">
+              <span class="material-symbols-outlined text-5xl text-primary">workspace_premium</span>
+              <p class="mt-3 text-sm font-bold text-muted">IELTS sertifikat</p>
+            </div>
+            <div class="mt-4 flex items-start justify-between gap-3">
+              <div>
+                <h3 class="font-display text-xl font-bold">Sevinch Akramova</h3>
+                <p class="mt-1 text-sm font-semibold text-muted">Overall IELTS</p>
+              </div>
+              <span class="score-badge rounded-xl bg-lime text-ink px-3 py-2 font-display text-2xl font-extrabold">7.0</span>
+            </div>
+            <div class="mt-4 grid grid-cols-4 gap-2 text-center text-xs font-bold text-muted"><span>R 7.0</span><span>L 7.5</span><span>W 6.5</span><span>S 7.0</span></div>
+            <p class="mt-4 inline-flex rounded-full bg-soft px-3 py-1 text-xs font-extrabold uppercase text-primary">IELTS</p>
+          </article>
+          <article class="reveal result-card p-4">
+            <div class="gallery-tile grid aspect-[9/16] place-items-center rounded-2xl border border-line p-5 text-center">
+              <span class="material-symbols-outlined text-5xl text-primary">verified</span>
+              <p class="mt-3 text-sm font-bold text-muted">CEFR sertifikat</p>
+            </div>
+            <div class="mt-4 flex items-start justify-between gap-3">
+              <div>
+                <h3 class="font-display text-xl font-bold">Nozima Islomova</h3>
+                <p class="mt-1 text-sm font-semibold text-muted">CEFR sertifikat</p>
+              </div>
+              <span class="score-badge rounded-xl bg-skysoft text-primary px-3 py-2 font-display text-2xl font-extrabold">B1</span>
+            </div>
+            <div class="mt-4 grid grid-cols-4 gap-2 text-center text-xs font-bold text-muted"><span>Progress</span><span>Mock</span><span>Grammar</span><span>CEFR</span></div>
+            <p class="mt-4 inline-flex rounded-full bg-soft px-3 py-1 text-xs font-extrabold uppercase text-primary">CEFR</p>
+          </article>
+          <article class="reveal result-card p-4">
+            <div class="gallery-tile grid aspect-[9/16] place-items-center rounded-2xl border border-line p-5 text-center">
+              <span class="material-symbols-outlined text-5xl text-primary">workspace_premium</span>
+              <p class="mt-3 text-sm font-bold text-muted">Sertifikat rasmi</p>
+            </div>
+            <div class="mt-4 flex items-start justify-between gap-3">
+              <div>
+                <h3 class="font-display text-xl font-bold">Nodirbek Aliyev</h3>
+                <p class="mt-1 text-sm font-semibold text-muted">Overall IELTS</p>
+              </div>
+              <span class="score-badge rounded-xl bg-skysoft text-primary px-3 py-2 font-display text-2xl font-extrabold">6.5</span>
+            </div>
+            <div class="mt-4 grid grid-cols-4 gap-2 text-center text-xs font-bold text-muted"><span>R 7.0</span><span>L 6.5</span><span>W 6.0</span><span>S 6.5</span></div>
+            <p class="mt-4 inline-flex rounded-full bg-soft px-3 py-1 text-xs font-extrabold uppercase text-primary">IELTS</p>
+          </article>
+          <article class="reveal result-card p-4">
+            <div class="gallery-tile grid aspect-[9/16] place-items-center rounded-2xl border border-line p-5 text-center">
+              <span class="material-symbols-outlined text-5xl text-primary">verified</span>
+              <p class="mt-3 text-sm font-bold text-muted">Talaba surati</p>
+            </div>
+            <div class="mt-4 flex items-start justify-between gap-3">
+              <div>
+                <h3 class="font-display text-xl font-bold">Temur Jo‘rayev</h3>
+                <p class="mt-1 text-sm font-semibold text-muted">CEFR sertifikat</p>
+              </div>
+              <span class="score-badge rounded-xl bg-skysoft text-primary px-3 py-2 font-display text-2xl font-extrabold">B1</span>
+            </div>
+            <div class="mt-4 grid grid-cols-4 gap-2 text-center text-xs font-bold text-muted"><span>Grammar</span><span>Speaking</span><span>Mock</span><span>CEFR</span></div>
+            <p class="mt-4 inline-flex rounded-full bg-soft px-3 py-1 text-xs font-extrabold uppercase text-primary">CEFR</p>
+          </article>
+          <article class="reveal result-card p-4">
+            <div class="gallery-tile grid aspect-[9/16] place-items-center rounded-2xl border border-line p-5 text-center">
+              <span class="material-symbols-outlined text-5xl text-primary">workspace_premium</span>
+              <p class="mt-3 text-sm font-bold text-muted">Talaba surati</p>
+            </div>
+            <div class="mt-4 flex items-start justify-between gap-3">
+              <div>
+                <h3 class="font-display text-xl font-bold">Ziyoda Sobirova</h3>
+                <p class="mt-1 text-sm font-semibold text-muted">Overall IELTS</p>
+              </div>
+              <span class="score-badge rounded-xl bg-skysoft text-primary px-3 py-2 font-display text-2xl font-extrabold">6.5</span>
+            </div>
+            <div class="mt-4 grid grid-cols-4 gap-2 text-center text-xs font-bold text-muted"><span>R 6.5</span><span>L 7.0</span><span>W 6.0</span><span>S 6.5</span></div>
+            <p class="mt-4 inline-flex rounded-full bg-soft px-3 py-1 text-xs font-extrabold uppercase text-primary">IELTS</p>
+          </article>
+          <article class="reveal result-card p-4">
+            <div class="gallery-tile grid aspect-[9/16] place-items-center rounded-2xl border border-line p-5 text-center">
+              <span class="material-symbols-outlined text-5xl text-primary">workspace_premium</span>
+              <p class="mt-3 text-sm font-bold text-muted">IELTS sertifikat</p>
+            </div>
+            <div class="mt-4 flex items-start justify-between gap-3">
+              <div>
+                <h3 class="font-display text-xl font-bold">Amirxon Yo‘ldoshev</h3>
+                <p class="mt-1 text-sm font-semibold text-muted">Overall IELTS</p>
+              </div>
+              <span class="score-badge rounded-xl bg-skysoft text-primary px-3 py-2 font-display text-2xl font-extrabold">6.5</span>
+            </div>
+            <div class="mt-4 grid grid-cols-4 gap-2 text-center text-xs font-bold text-muted"><span>R 7.0</span><span>L 6.5</span><span>W 6.0</span><span>S 6.0</span></div>
+            <p class="mt-4 inline-flex rounded-full bg-soft px-3 py-1 text-xs font-extrabold uppercase text-primary">IELTS</p>
+          </article>
+          <article class="reveal result-card p-4">
+            <div class="gallery-tile grid aspect-[9/16] place-items-center rounded-2xl border border-line p-5 text-center">
+              <span class="material-symbols-outlined text-5xl text-primary">verified</span>
+              <p class="mt-3 text-sm font-bold text-muted">Sertifikat rasmi</p>
+            </div>
+            <div class="mt-4 flex items-start justify-between gap-3">
+              <div>
+                <h3 class="font-display text-xl font-bold">Feruza Nabiyeva</h3>
+                <p class="mt-1 text-sm font-semibold text-muted">CEFR sertifikat</p>
+              </div>
+              <span class="score-badge rounded-xl bg-skysoft text-primary px-3 py-2 font-display text-2xl font-extrabold">B1</span>
+            </div>
+            <div class="mt-4 grid grid-cols-4 gap-2 text-center text-xs font-bold text-muted"><span>Final</span><span>Mock</span><span>Grammar</span><span>CEFR</span></div>
+            <p class="mt-4 inline-flex rounded-full bg-soft px-3 py-1 text-xs font-extrabold uppercase text-primary">CEFR</p>
+          </article>
+          <article class="reveal result-card p-4">
+            <div class="gallery-tile grid aspect-[9/16] place-items-center rounded-2xl border border-line p-5 text-center">
+              <span class="material-symbols-outlined text-5xl text-primary">workspace_premium</span>
+              <p class="mt-3 text-sm font-bold text-muted">Sertifikat rasmi</p>
+            </div>
+            <div class="mt-4 flex items-start justify-between gap-3">
+              <div>
+                <h3 class="font-display text-xl font-bold">Shahnoza Ergasheva</h3>
+                <p class="mt-1 text-sm font-semibold text-muted">Overall IELTS</p>
+              </div>
+              <span class="score-badge rounded-xl bg-skysoft text-primary px-3 py-2 font-display text-2xl font-extrabold">6.0</span>
+            </div>
+            <div class="mt-4 grid grid-cols-4 gap-2 text-center text-xs font-bold text-muted"><span>R 6.5</span><span>L 6.0</span><span>W 6.0</span><span>S 6.0</span></div>
+            <p class="mt-4 inline-flex rounded-full bg-soft px-3 py-1 text-xs font-extrabold uppercase text-primary">IELTS</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="moments" class="py-14 md:py-20">
+      <div class="container-x">
+        <div class="reveal mb-8 flex flex-col justify-between gap-3 md:flex-row md:items-end">
+          <div>
+            <span class="text-sm font-extrabold uppercase tracking-[0.16em] text-primary">Esdalik suratlar</span>
+            <h2 class="mt-2 font-display text-4xl font-extrabold sm:text-5xl">Guruh va tabrik lahzalari</h2>
+          </div>
+          <a href="https://t.me/insightresults" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 font-bold text-primary hover:underline md:shrink-0">Telegram kanal <span class="material-symbols-outlined">north_east</span></a>
+        </div>
+        <div class="grid gap-4 md:grid-cols-3">
+          <article class="reveal overflow-hidden rounded-[24px] border border-line bg-white"><img src="./centerimage.png" alt="InsightPlus guruh esdalik surati" class="h-56 w-full object-cover"><div class="p-5"><h3 class="font-display text-2xl font-bold">Guruh suratlari</h3><p class="mt-2 text-sm text-muted">Dars va bitiruv kunlaridan lavhalar.</p></div></article>
+          <article class="reveal result-card"><span class="material-symbols-outlined text-4xl text-primary">celebration</span><h3 class="mt-4 font-display text-2xl font-bold">Tabrik kunlari</h3><p class="mt-2 text-sm text-muted">Sertifikat olgan talabalar bilan esdalik suratlar.</p></article>
+          <article class="reveal result-card"><span class="material-symbols-outlined text-4xl text-primary">groups</span><h3 class="mt-4 font-display text-2xl font-bold">Jamoaviy muhit</h3><p class="mt-2 text-sm text-muted">Mentorlar, guruhlar va markazdagi kundalik lahzalar.</p></article>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer class="border-t border-line bg-white py-12 md:py-16">
     <div class="container-x">
       <div class="grid gap-10 md:grid-cols-12">
         <div class="md:col-span-5">
-          <a href="./index.html" class="font-display text-2xl font-extrabold tracking-[-0.04em] text-primary">InsightPlus</a>
+          <a href="./index.html" class="font-display text-2xl font-extrabold text-primary">InsightPlus</a>
           <p class="mt-5 max-w-md leading-7 text-muted">Zamonaviy taʼlim platformasi orqali xalqaro darajadagi bilim va ko‘nikmalarni qulay va samarali tarzda o‘rganing.</p>
         </div>
-        <div class="md:col-span-2"><h5 class="mb-5 text-xs font-extrabold uppercase tracking-[0.18em] text-primary">Yo‘nalishlar</h5><ul class="space-y-3 text-sm font-semibold text-muted"><li><a class="hover:text-primary" href="./index.html#courses">Ingliz tili</a></li><li><a class="hover:text-primary" href="./index.html#courses">IT va dasturlash</a></li><li><a class="hover:text-primary" href="./index.html#courses">Rus tili</a></li><li><a class="hover:text-primary" href="./index.html#courses">Kompyuter savodxonligi</a></li></ul></div>
-        <div class="md:col-span-2"><h5 class="mb-5 text-xs font-extrabold uppercase tracking-[0.18em] text-primary">Kompaniya</h5><ul class="space-y-3 text-sm font-semibold text-muted"><li><a class="hover:text-primary" href="./about.html">Biz haqimizda</a></li><li><a class="hover:text-primary" href="./location.html">Manzil</a></li><li><a class="hover:text-primary" href="./price.html">Narxlar</a></li><li><a class="hover:text-primary" href="./results.html">Natijalar</a></li></ul></div>
-        <div class="md:col-span-3"><h5 class="mb-5 text-xs font-extrabold uppercase tracking-[0.18em] text-primary">Ijtimoiy tarmoqlar</h5><div class="flex gap-3"><a href="https://www.facebook.com/insightplusedu" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="grid h-11 w-11 place-items-center rounded-2xl border border-line text-slate-700 transition hover:border-primary hover:bg-primary hover:text-white"><span class="text-sm font-bold">f</span></a><a href="https://www.instagram.com/insightplusedu" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="grid h-11 w-11 place-items-center rounded-2xl border border-line text-slate-700 transition hover:border-primary hover:bg-primary hover:text-white"><span class="material-symbols-outlined">photo_camera</span></a><a href="https://t.me/insightplusedu" target="_blank" rel="noopener noreferrer" aria-label="Telegram" class="grid h-11 w-11 place-items-center rounded-2xl border border-line text-slate-700 transition hover:border-primary hover:bg-primary hover:text-white"><span class="material-symbols-outlined">send</span></a></div></div>
+        <div class="md:col-span-2"><h5 class="mb-5 text-xs font-extrabold uppercase text-primary">Yo‘nalishlar</h5><ul class="space-y-3 text-sm font-semibold text-muted"><li><a class="hover:text-primary" href="./index.html#courses">Ingliz tili</a></li><li><a class="hover:text-primary" href="./index.html#courses">IT va dasturlash</a></li><li><a class="hover:text-primary" href="./index.html#courses">Rus tili</a></li><li><a class="hover:text-primary" href="./index.html#courses">Kompyuter savodxonligi</a></li></ul></div>
+        <div class="md:col-span-2"><h5 class="mb-5 text-xs font-extrabold uppercase text-primary">Kompaniya</h5><ul class="space-y-3 text-sm font-semibold text-muted"><li><a class="hover:text-primary" href="./about.html">Biz haqimizda</a></li><li><a class="hover:text-primary" href="./location.html">Manzil</a></li><li><a class="hover:text-primary" href="./price.html">Narxlar</a></li><li><a class="hover:text-primary" href="./results.html">Natijalar</a></li></ul></div>
+        <div class="md:col-span-3"><h5 class="mb-5 text-xs font-extrabold uppercase text-primary">Ijtimoiy tarmoqlar</h5><div class="flex gap-3"><a href="https://t.me/insightresults" target="_blank" rel="noopener noreferrer" aria-label="Telegram kanal" title="Telegram kanal" class="grid h-11 w-11 place-items-center rounded-2xl border border-line text-slate-700 transition hover:border-primary hover:bg-primary hover:text-white"><svg class="h-5 w-5" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M21.8 4.2c.3-1.2-.8-1.8-1.8-1.4L2.9 9.4c-1.1.4-1.1 1.1-.2 1.4l4.4 1.4 10.2-6.4c.5-.3.9-.1.5.2l-8.3 7.5-.3 4.5c.5 0 .7-.2 1-.5l2.4-2.3 4.9 3.6c.9.5 1.5.2 1.7-.8l2.6-13.8z"/></svg></a><a href="https://www.instagram.com/insightplus_lc/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram" class="grid h-11 w-11 place-items-center rounded-2xl border border-line text-slate-700 transition hover:border-primary hover:bg-primary hover:text-white"><svg class="h-5 w-5" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a><a href="https://t.me/rizayev_english" target="_blank" rel="noopener noreferrer" aria-label="Telegram chat" title="Telegram chat" class="grid h-11 w-11 place-items-center rounded-2xl border border-line text-slate-700 transition hover:border-primary hover:bg-primary hover:text-white"><svg class="h-5 w-5" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5A3.5 3.5 0 0 1 7.5 2h9A3.5 3.5 0 0 1 20 5.5v6A3.5 3.5 0 0 1 16.5 15H11l-5 4v-4.2A3.5 3.5 0 0 1 4 11.5v-6Z"/><path d="m8 8.5 8-3-2.2 7-2.3-2-2 2 .4-2.8L8 8.5Z" fill="currentColor" stroke="none"/></svg></a></div></div>
       </div>
       <div class="mt-12 flex flex-col items-center justify-between gap-4 border-t border-line pt-8 text-sm font-semibold text-muted md:flex-row"><p>© 2026 InsightPlus Education. Barcha huquqlar himoyalangan.</p><div class="flex gap-5"><a class="hover:text-primary" href="#">Maxfiylik siyosati</a><a class="hover:text-primary" href="#">Foydalanish shartlari</a></div></div>
     </div>
@@ -187,7 +485,7 @@
     <div class="relative w-full max-w-md rounded-[32px] border border-line bg-white p-6 shadow-2xl md:p-8">
       <button data-close-contact class="absolute right-4 top-4 grid h-10 w-10 place-items-center rounded-2xl bg-slate-100 text-ink transition hover:bg-primary hover:text-white focus:outline-none focus:ring-4 focus:ring-primary/20" aria-label="Modalni yopish"><span class="material-symbols-outlined">close</span></button>
       <div class="mx-auto mb-6 grid h-16 w-16 place-items-center rounded-3xl bg-lime text-primary"><span class="material-symbols-outlined text-3xl">headset_mic</span></div>
-      <h3 id="contact-title" class="text-center font-display text-3xl font-extrabold tracking-[-0.04em]">Bog‘lanish</h3>
+      <h3 id="contact-title" class="text-center font-display text-3xl font-extrabold">Bog‘lanish</h3>
       <p class="mx-auto mt-3 max-w-xs text-center text-sm leading-6 text-muted">Savollaringiz bormi? Biz bilan bog‘laning, darhol javob beramiz.</p>
       <div class="mt-7 grid gap-3">
         <a href="tel:+998908124341" class="flex items-center justify-center gap-3 rounded-2xl border border-line bg-soft py-4 font-extrabold text-primary transition hover:-translate-y-0.5 hover:bg-white hover:shadow-soft"><span class="material-symbols-outlined">call</span> +998 90 812 43 41</a>

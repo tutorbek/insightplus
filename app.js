@@ -79,6 +79,23 @@
     header.classList.toggle('shadow-soft', window.scrollY > 8);
   }
 
+  function initSectionScroll(root = document) {
+    qsa('[data-scroll-to]', root).forEach((link) => {
+      if (link.dataset.scrollReady === 'true') return;
+      link.dataset.scrollReady = 'true';
+      link.addEventListener('click', (event) => {
+        const targetId = link.dataset.scrollTo;
+        const target = targetId ? document.getElementById(targetId) : null;
+        if (!target) return;
+
+        event.preventDefault();
+        closeMobileMenu();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        if (history.pushState) history.pushState(null, '', `#${targetId}`);
+      });
+    });
+  }
+
   function updateActiveNavigation(pathname = window.location.pathname) {
     const currentPage = pathname.split('/').pop() || 'index.html';
 
@@ -181,6 +198,7 @@
     initNavigation(root);
     initHeader();
     updateActiveNavigation();
+    initSectionScroll(root);
     initReveal(root);
     initFaqAccordion(root);
     initContactForm(root);
