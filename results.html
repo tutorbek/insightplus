@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="uz" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Natijalar — InsightPlus</title>
+  <meta name="description" content="InsightPlus talabalarining IELTS, CEFR va IT bo‘yicha natijalari." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <!-- Favicons -->
+  <link rel="icon" href="/favicons/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="48x48" href="/favicons/favicon-48x48.png" />
+  <link rel="icon" type="image/png" sizes="512x512" href="/favicons/favicon-512x512.png" />
+
+  <!-- Apple / Mobile -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png" />
+
+  <!-- Android / PWA -->
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicons/android-chrome-192x192.png" />
+  <link rel="icon" type="image/png" sizes="512x512" href="/favicons/android-chrome-512x512.png" />
+  <link rel="manifest" href="/favicons/site.webmanifest" />
+
+  <!-- Theme -->
+  <meta name="theme-color" content="#E7FF56" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="InsightPlus" />
+  <meta property="og:site_name" content="InsightPlus" />
+  <meta property="og:description" content="InsightPlus talabalarining IELTS, CEFR va IT bo‘yicha natijalari." />
+  <meta property="og:image" content="./favicons/android-chrome-512x512.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="InsightPlus" />
+  <meta name="twitter:image" content="./favicons/android-chrome-512x512.png" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { primary: '#306BF3', ink: '#0F172A', muted: '#64748B', line: '#E2E8F0', soft: '#F8FAFC', lime: '#E7FF56', skysoft: '#EAF6FF' },
+          fontFamily: { display: ['Syne', 'sans-serif'], body: ['DM Sans', 'sans-serif'] },
+          boxShadow: { soft: '0 18px 55px rgba(15, 23, 42, 0.08)', glow: '0 24px 80px rgba(48, 107, 243, 0.18)' }
+        }
+      }
+    };
+  </script>
+  <style>
+    .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24; }
+    *, *::before, *::after { box-sizing: border-box; min-width: 0; }
+    html, body { max-width: 100%; overflow-x: hidden; }
+    body { font-family: 'DM Sans', sans-serif; color: #0F172A; background: #F8FAFC; }
+    .font-display { font-family: 'Syne', sans-serif; }
+    .container-x { width: min(1280px, calc(100% - 32px)); margin-inline: auto; }
+    .noise { background-image: radial-gradient(circle at 15% 15%, rgba(48,107,243,0.15), transparent 34%), radial-gradient(circle at 85% 5%, rgba(231,255,86,0.42), transparent 28%), radial-gradient(circle at 80% 88%, rgba(48,107,243,0.12), transparent 35%); }
+    .nav-link { position: relative; }
+    .nav-link::after { content: ''; position: absolute; left: 0; bottom: -8px; width: 0; height: 2px; border-radius: 999px; background: #306BF3; transition: width .25s ease; }
+    .nav-link:hover::after, .nav-link.active::after { width: 100%; }
+    .reveal { opacity: 0; transform: translateY(18px); transition: .65s ease; }
+    .reveal.show { opacity: 1; transform: translateY(0); }
+    .marquee { display: flex; width: max-content; animation: marquee 28s linear infinite; }
+    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    h1, h2, h3, p, a, button, summary, span { overflow-wrap: break-word; }
+    summary { list-style: none; }
+    summary::-webkit-details-marker { display: none; }
+    @media (max-width: 639px) {
+      .container-x { width: min(100% - 24px, 1280px); }
+      h1 { font-size: clamp(2rem, 9.5vw, 2.45rem) !important; line-height: 1.08 !important; letter-spacing: 0 !important; }
+      h2 { font-size: clamp(1.8rem, 8vw, 2.35rem) !important; line-height: 1.12 !important; letter-spacing: 0 !important; }
+      h3 { line-height: 1.18 !important; letter-spacing: 0 !important; }
+      p { line-height: 1.65; }
+      section { padding-block: clamp(3.5rem, 12vw, 5rem); }
+      .page-hero { padding-top: 7rem !important; }
+      article, details, blockquote, #contact-modal .relative { border-radius: 1.25rem !important; }
+      .rounded-[34px], .rounded-[38px] { border-radius: 1.5rem !important; }
+      #mobile-drawer { left: 0.75rem; right: 0.75rem; top: 5.75rem; max-height: calc(100dvh - 7rem); overflow-y: auto; }
+      .fixed.inset-x-4.bottom-4 { left: 0.75rem !important; right: 0.75rem !important; }
+      summary { align-items: flex-start !important; gap: .75rem; line-height: 1.35; }
+      summary .material-symbols-outlined { flex: 0 0 1.5rem; width: 1.5rem; overflow-wrap: normal; }
+      .marquee > div { gap: 1.75rem !important; font-size: 1rem !important; white-space: nowrap; }
+    }
+    @media (max-width: 374px) {
+      .container-x { width: min(100% - 20px, 1280px); }
+      header nav { height: 4.5rem !important; }
+      header a.font-display { font-size: 1.35rem !important; }
+      h1 { font-size: clamp(1.9rem, 10.5vw, 2.35rem) !important; }
+      h2 { font-size: clamp(1.6rem, 7.5vw, 2rem) !important; }
+      .page-hero { padding-top: 6rem !important; }
+      .fixed.inset-x-4.bottom-4 { gap: .5rem !important; }
+    }
+    @media (prefers-reduced-motion: reduce) { .marquee { animation: none; } .reveal { opacity: 1; transform: none; } html { scroll-behavior: auto; } }
+  </style>
+</head>
+
+<body class="antialiased selection:bg-lime selection:text-ink pb-24 md:pb-0 ">
+  <header id="site-header" class="fixed inset-x-0 top-0 z-50 border-b border-white/20 bg-white/75 backdrop-blur-2xl transition-shadow">
+    <nav class="container-x flex h-20 items-center justify-between">
+      <a href="./index.html" class="font-display text-2xl font-extrabold tracking-[-0.04em] text-primary" aria-label="InsightPlus bosh sahifa">InsightPlus</a>
+      <div class="hidden items-center gap-9 lg:flex">
+        <a class="nav-link text-sm font-semibold text-slate-700 hover:text-primary " href="./about.html">Biz haqimizda</a>
+        <a class="nav-link text-sm font-semibold text-slate-700 hover:text-primary active text-primary" href="./results.html">Natijalar</a>
+        <a class="nav-link text-sm font-semibold text-slate-700 hover:text-primary " href="./price.html">Narxlar</a>
+        <a class="nav-link text-sm font-semibold text-slate-700 hover:text-primary " href="./mockcefrcoming.html">Mock CEFR</a>
+        <a class="nav-link text-sm font-semibold text-slate-700 hover:text-primary " href="./location.html">Manzil</a>
+      </div>
+      <div class="flex items-center gap-3">
+        <button data-open-contact class="hidden rounded-2xl bg-ink px-6 py-3 text-sm font-bold text-white shadow-soft transition hover:-translate-y-0.5 hover:bg-primary focus:outline-none focus:ring-4 focus:ring-primary/20 sm:inline-flex">Bepul maslahat</button>
+        <button id="mobile-menu-open" class="grid h-11 w-11 place-items-center rounded-2xl border border-line bg-white text-ink transition hover:border-primary hover:text-primary focus:outline-none focus:ring-4 focus:ring-primary/20 lg:hidden" aria-label="Menyuni ochish" aria-expanded="false">
+          <span class="material-symbols-outlined text-[28px]">menu</span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <div id="mobile-backdrop" class="fixed inset-0 z-[80] hidden bg-ink/45 backdrop-blur-sm"></div>
+  <aside id="mobile-drawer" class="fixed left-4 right-4 top-24 z-[90] hidden rounded-[28px] border border-line bg-white p-6 shadow-2xl lg:hidden">
+    <div class="mb-7 flex items-center justify-between">
+      <a href="./index.html" class="font-display text-2xl font-extrabold tracking-[-0.04em] text-primary">InsightPlus</a>
+      <button id="mobile-menu-close" class="grid h-10 w-10 place-items-center rounded-xl bg-slate-100 focus:outline-none focus:ring-4 focus:ring-primary/20" aria-label="Menyuni yopish">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+    </div>
+    <div class="grid gap-3">
+      <a class="mobile-link rounded-2xl px-4 py-3 font-bold text-slate-700 hover:bg-skysoft hover:text-primary" href="./about.html">Biz haqimizda</a>
+      <a class="mobile-link rounded-2xl px-4 py-3 font-bold bg-skysoft text-primary hover:bg-skysoft hover:text-primary" href="./results.html">Natijalar</a>
+      <a class="mobile-link rounded-2xl px-4 py-3 font-bold text-slate-700 hover:bg-skysoft hover:text-primary" href="./price.html">Narxlar</a>
+      <a class="mobile-link rounded-2xl px-4 py-3 font-bold text-slate-700 hover:bg-skysoft hover:text-primary" href="./mockcefrcoming.html">Mock CEFR</a>
+      <a class="mobile-link rounded-2xl px-4 py-3 font-bold text-slate-700 hover:bg-skysoft hover:text-primary" href="./location.html">Manzil</a>
+      <button data-open-contact class="mt-3 rounded-2xl bg-primary px-5 py-4 font-bold text-white shadow-glow focus:outline-none focus:ring-4 focus:ring-primary/20">Bog‘lanish</button>
+    </div>
+  </aside>
+
+<main>
+    <section class="noise page-hero relative overflow-hidden pt-32 pb-14 md:pt-36 md:pb-20">
+      <div class="container-x text-center">
+        <span class="inline-flex items-center gap-2 rounded-full border border-primary/15 bg-white/80 px-4 py-2 text-xs font-extrabold uppercase tracking-[0.16em] text-primary shadow-sm"><span class="h-2 w-2 rounded-full bg-lime ring-4 ring-lime/30"></span> Muvaffaqiyat tarixi</span>
+        <h1 class="mx-auto mt-6 max-w-5xl font-display text-[42px] font-extrabold leading-[1.02] tracking-[-0.055em] text-ink sm:text-6xl lg:text-7xl">Bizning natijalarimiz — sizning kelajagingiz</h1>
+        <p class="mx-auto mt-6 max-w-2xl text-base leading-8 text-muted sm:text-lg">Talabalarimiz yuqori IELTS ballari, CEFR sertifikatlari va real portfolio loyihalari bilan o‘z yo‘lini boshlamoqda.</p>
+        
+      </div>
+    </section>
+    <section class="bg-primary py-14 text-white md:py-20">
+      <div class="container-x grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div class="reveal rounded-[28px] border border-white/15 bg-white/10 p-6 text-center backdrop-blur"><p class="font-display text-4xl font-extrabold text-lime sm:text-5xl">7.5+</p><p class="mt-2 text-xs font-extrabold uppercase tracking-[0.16em] text-white/70">O‘rtacha IELTS</p></div>
+        <div class="reveal rounded-[28px] border border-white/15 bg-white/10 p-6 text-center backdrop-blur"><p class="font-display text-4xl font-extrabold text-lime sm:text-5xl">1200+</p><p class="mt-2 text-xs font-extrabold uppercase tracking-[0.16em] text-white/70">Bitiruvchi</p></div>
+        <div class="reveal rounded-[28px] border border-white/15 bg-white/10 p-6 text-center backdrop-blur"><p class="font-display text-4xl font-extrabold text-lime sm:text-5xl">94%</p><p class="mt-2 text-xs font-extrabold uppercase tracking-[0.16em] text-white/70">Maqsadga yetgan</p></div>
+        <div class="reveal rounded-[28px] border border-white/15 bg-white/10 p-6 text-center backdrop-blur"><p class="font-display text-4xl font-extrabold text-lime sm:text-5xl">50+</p><p class="mt-2 text-xs font-extrabold uppercase tracking-[0.16em] text-white/70">Hamkorlar</p></div>
+      </div>
+    </section>
+    <section class="bg-white py-16 md:py-24">
+      <div class="container-x">
+        <div class="reveal mb-12 flex flex-col justify-between gap-5 md:flex-row md:items-end"><div><span class="text-sm font-extrabold uppercase tracking-[0.16em] text-primary">IELTS galereyasi</span><h2 class="mt-3 font-display text-4xl font-extrabold tracking-[-0.04em] sm:text-5xl">Yuqori natija olgan talabalar</h2></div><a href="./location.html" class="inline-flex items-center gap-2 font-bold text-primary hover:underline md:shrink-0">Biz bilan bog‘lanish <span class="material-symbols-outlined">north_east</span></a></div>
+        <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <article class="reveal rounded-[28px] border border-line bg-soft p-6 shadow-sm"><div class="mb-5 flex items-center justify-between"><div class="grid h-14 w-14 place-items-center rounded-2xl bg-primary text-white"><span class="material-symbols-outlined">workspace_premium</span></div><span class="rounded-2xl bg-lime px-4 py-2 font-display text-2xl font-extrabold text-ink">8.0</span></div><h3 class="font-display text-2xl font-bold tracking-[-0.03em]">Azizbek Nazarov</h3><p class="mt-4 text-sm leading-6 text-muted">“InsightPlus menga nafaqat til o‘rgatdi, balki o‘zimga bo‘lgan ishonchni berdi.”</p><div class="mt-5 flex text-primary"><span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1">star</span><span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1">star</span><span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1">star</span><span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1">star</span><span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1">star</span></div></article>
+          <article class="reveal rounded-[28px] border border-line bg-soft p-6 shadow-sm"><div class="mb-5 flex items-center justify-between"><div class="grid h-14 w-14 place-items-center rounded-2xl bg-primary text-white"><span class="material-symbols-outlined">workspace_premium</span></div><span class="rounded-2xl bg-lime px-4 py-2 font-display text-2xl font-extrabold text-ink">8.5</span></div><h3 class="font-display text-2xl font-bold tracking-[-0.03em]">Malika Ahmedova</h3><p class="mt-4 text-sm leading-6 text-muted">“Kurslar tizimli va juda samarali. Har bir dars yangi kashfiyot bo‘ldi.”</p><div class="mt-5 flex text-primary"><span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1">star</span><span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1">star</span><span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1">star</span><span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1">star</span><span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1">star</span></div></article>
+          <article class="reveal rounded-[28px] border border-line bg-soft p-6 shadow-sm"><div class="mb-5 flex items-center justify-between"><div class="grid h-14 w-14 place-items-center rounded-2xl bg-primary text-white"><span class="material-symbols-outlined">workspace_premium</span></div><span class="rounded-2xl bg-lime px-4 py-2 font-display text-2xl font-extrabold text-ink">7.5</span></div><h3 class="font-display text-2xl font-bold tracking-[-0.03em]">Jasur Umidov</h3><p class="mt-4 text-sm leading-6 text-muted">“O‘qituvchilarning qo‘llab-quvvatlashi meni maqsadimga yetakladi.”</p><div class="mt-5 flex text-primary"><span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1">star</span><span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1">star</span><span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1">star</span><span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1">star</span><span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1">star</span></div></article>
+          <article class="reveal rounded-[28px] border border-line bg-soft p-6 shadow-sm"><div class="mb-5 flex items-center justify-between"><div class="grid h-14 w-14 place-items-center rounded-2xl bg-primary text-white"><span class="material-symbols-outlined">workspace_premium</span></div><span class="rounded-2xl bg-lime px-4 py-2 font-display text-2xl font-extrabold text-ink">8.0</span></div><h3 class="font-display text-2xl font-bold tracking-[-0.03em]">Dilnoza Olimova</h3><p class="mt-4 text-sm leading-6 text-muted">“Speaking klublar va muhit shunchaki ajoyib. InsightPlusga rahmat.”</p><div class="mt-5 flex text-primary"><span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1">star</span><span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1">star</span><span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1">star</span><span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1">star</span><span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1">star</span></div></article>
+        </div>
+      </div>
+    </section>
+    <section class="py-16 md:py-24"><div class="container-x grid gap-6 lg:grid-cols-[1.2fr_0.8fr]"><div class="reveal rounded-[34px] border border-line bg-white p-8 shadow-soft md:p-12"><span class="text-sm font-extrabold uppercase tracking-[0.16em] text-primary">Muvaffaqiyat tarixi</span><h2 class="mt-3 font-display text-4xl font-extrabold tracking-[-0.04em]">Orzudan haqiqatgacha</h2><p class="mt-5 text-lg leading-8 text-muted">Sardor IELTS 5.5 ball bilan boshlagan edi. 6 oylik intensiv tayyorgarlikdan so‘ng 8.5 ballni qo‘lga kiritdi va xalqaro grant dasturlariga hujjat topshirdi.</p></div><div class="reveal rounded-[34px] bg-primary p-8 text-white shadow-glow md:p-12"><span class="material-symbols-outlined text-5xl text-lime">format_quote</span><h3 class="mt-6 font-display text-3xl font-bold tracking-[-0.04em]">Sifatli taʼlim hamma uchun ochiq bo‘lishi kerak.</h3><p class="mt-8 text-sm font-bold uppercase tracking-[0.16em] text-white/60">InsightPlus jamoasi</p></div></div></section>
+  </main>
+
+  <footer class="border-t border-line bg-white py-12 md:py-16">
+    <div class="container-x">
+      <div class="grid gap-10 md:grid-cols-12">
+        <div class="md:col-span-5">
+          <a href="./index.html" class="font-display text-2xl font-extrabold tracking-[-0.04em] text-primary">InsightPlus</a>
+          <p class="mt-5 max-w-md leading-7 text-muted">Zamonaviy taʼlim platformasi orqali xalqaro darajadagi bilim va ko‘nikmalarni qulay va samarali tarzda o‘rganing.</p>
+        </div>
+        <div class="md:col-span-2"><h5 class="mb-5 text-xs font-extrabold uppercase tracking-[0.18em] text-primary">Yo‘nalishlar</h5><ul class="space-y-3 text-sm font-semibold text-muted"><li><a class="hover:text-primary" href="./index.html#courses">Ingliz tili</a></li><li><a class="hover:text-primary" href="./index.html#courses">IT va dasturlash</a></li><li><a class="hover:text-primary" href="./index.html#courses">Rus tili</a></li><li><a class="hover:text-primary" href="./index.html#courses">Kompyuter savodxonligi</a></li></ul></div>
+        <div class="md:col-span-2"><h5 class="mb-5 text-xs font-extrabold uppercase tracking-[0.18em] text-primary">Kompaniya</h5><ul class="space-y-3 text-sm font-semibold text-muted"><li><a class="hover:text-primary" href="./about.html">Biz haqimizda</a></li><li><a class="hover:text-primary" href="./location.html">Manzil</a></li><li><a class="hover:text-primary" href="./price.html">Narxlar</a></li><li><a class="hover:text-primary" href="./results.html">Natijalar</a></li></ul></div>
+        <div class="md:col-span-3"><h5 class="mb-5 text-xs font-extrabold uppercase tracking-[0.18em] text-primary">Ijtimoiy tarmoqlar</h5><div class="flex gap-3"><a href="https://www.facebook.com/insightplusedu" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="grid h-11 w-11 place-items-center rounded-2xl border border-line text-slate-700 transition hover:border-primary hover:bg-primary hover:text-white"><span class="text-sm font-bold">f</span></a><a href="https://www.instagram.com/insightplusedu" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="grid h-11 w-11 place-items-center rounded-2xl border border-line text-slate-700 transition hover:border-primary hover:bg-primary hover:text-white"><span class="material-symbols-outlined">photo_camera</span></a><a href="https://t.me/insightplusedu" target="_blank" rel="noopener noreferrer" aria-label="Telegram" class="grid h-11 w-11 place-items-center rounded-2xl border border-line text-slate-700 transition hover:border-primary hover:bg-primary hover:text-white"><span class="material-symbols-outlined">send</span></a></div></div>
+      </div>
+      <div class="mt-12 flex flex-col items-center justify-between gap-4 border-t border-line pt-8 text-sm font-semibold text-muted md:flex-row"><p>© 2026 InsightPlus Education. Barcha huquqlar himoyalangan.</p><div class="flex gap-5"><a class="hover:text-primary" href="#">Maxfiylik siyosati</a><a class="hover:text-primary" href="#">Foydalanish shartlari</a></div></div>
+    </div>
+  </footer>
+
+  <div class="fixed inset-x-4 bottom-4 z-40 flex gap-3 rounded-[24px] border border-line bg-white/90 p-2 shadow-2xl backdrop-blur-xl md:hidden">
+    <button data-open-contact class="flex-1 rounded-2xl bg-primary py-3 text-sm font-extrabold text-white">Bog‘lanish</button>
+    <a href="https://t.me/rizayev_english" target="_blank" rel="noopener noreferrer" class="flex-1 rounded-2xl bg-lime py-3 text-center text-sm font-extrabold text-ink">Telegram</a>
+  </div>
+
+  <div id="contact-modal" class="fixed inset-0 z-[200] hidden items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="contact-title">
+    <div data-close-contact class="absolute inset-0 bg-ink/50 backdrop-blur-sm"></div>
+    <div class="relative w-full max-w-md rounded-[32px] border border-line bg-white p-6 shadow-2xl md:p-8">
+      <button data-close-contact class="absolute right-4 top-4 grid h-10 w-10 place-items-center rounded-2xl bg-slate-100 text-ink transition hover:bg-primary hover:text-white focus:outline-none focus:ring-4 focus:ring-primary/20" aria-label="Modalni yopish"><span class="material-symbols-outlined">close</span></button>
+      <div class="mx-auto mb-6 grid h-16 w-16 place-items-center rounded-3xl bg-lime text-primary"><span class="material-symbols-outlined text-3xl">headset_mic</span></div>
+      <h3 id="contact-title" class="text-center font-display text-3xl font-extrabold tracking-[-0.04em]">Bog‘lanish</h3>
+      <p class="mx-auto mt-3 max-w-xs text-center text-sm leading-6 text-muted">Savollaringiz bormi? Biz bilan bog‘laning, darhol javob beramiz.</p>
+      <div class="mt-7 grid gap-3">
+        <a href="tel:+998908124341" class="flex items-center justify-center gap-3 rounded-2xl border border-line bg-soft py-4 font-extrabold text-primary transition hover:-translate-y-0.5 hover:bg-white hover:shadow-soft"><span class="material-symbols-outlined">call</span> +998 90 812 43 41</a>
+        <a href="https://t.me/rizayev_english" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-3 rounded-2xl bg-[#2AABEE] py-4 font-extrabold text-white shadow-lg shadow-[#2AABEE]/25 transition hover:-translate-y-0.5 hover:bg-[#2298D6]"><span class="material-symbols-outlined">send</span> Telegram orqali yozish</a>
+      </div>
+    </div>
+  </div>
+  <script src="./app.js"></script>
+</body>
+</html>

@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="uz" class="scroll-smooth">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>InsightPlus — Xalqaro darajadagi zamonaviy taʼlim</title>
+  <meta name="description"
+    content="InsightPlus Education — IELTS, CEFR, IT, Rus tili va kompyuter savodxonligi bo‘yicha zamonaviy o‘quv markazi." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+    rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <!-- Favicons -->
+  <link rel="icon" href="/favicons/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="48x48" href="/favicons/favicon-48x48.png" />
+  <link rel="icon" type="image/png" sizes="512x512" href="/favicons/favicon-512x512.png" />
+
+  <!-- Apple / Mobile -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png" />
+
+  <!-- Android / PWA -->
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicons/android-chrome-192x192.png" />
+  <link rel="icon" type="image/png" sizes="512x512" href="/favicons/android-chrome-512x512.png" />
+  <link rel="manifest" href="/favicons/site.webmanifest" />
+
+  <!-- Theme -->
+  <meta name="theme-color" content="#E7FF56" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="InsightPlus" />
+  <meta property="og:site_name" content="InsightPlus" />
+  <meta property="og:description"
+    content="InsightPlus Education — IELTS, CEFR, IT, Rus tili va kompyuter savodxonligi bo‘yicha zamonaviy o‘quv markazi." />
+  <meta property="og:image" content="./favicons/android-chrome-512x512.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="InsightPlus" />
+  <meta name="twitter:image" content="./favicons/android-chrome-512x512.png" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { primary: '#306BF3', ink: '#0F172A', muted: '#64748B', line: '#E2E8F0', soft: '#F8FAFC', lime: '#E7FF56', skysoft: '#EAF6FF' },
+          fontFamily: { display: ['Syne', 'sans-serif'], body: ['DM Sans', 'sans-serif'] },
+          boxShadow: { soft: '0 18px 55px rgba(15, 23, 42, 0.08)', glow: '0 24px 80px rgba(48, 107, 243, 0.18)' }
+        }
+      }
+    };
+  </script>
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      min-width: 0;
+    }
+
+    html,
+    body {
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      color: #0F172A;
+      background: #F8FAFC;
+    }
+
+    .font-display {
+      font-family: 'Syne', sans-serif;
+    }
+
+    .container-x {
+      width: min(1280px, calc(100% - 32px));
+      margin-inline: auto;
+    }
+
+    .noise {
+      background-image: radial-gradient(circle at 15% 15%, rgba(48, 107, 243, 0.15), transparent 34%), radial-gradient(circle at 85% 5%, rgba(231, 255, 86, 0.42), transparent 28%), radial-gradient(circle at 80% 88%, rgba(48, 107, 243, 0.12), transparent 35%);
+    }
+
+    .nav-link {
+      position: relative;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -8px;
+      width: 0;
+      height: 2px;
+      border-radius: 999px;
+      background: #306BF3;
+      transition: width .25s ease;
+    }
+
+    .nav-link:hover::after,
+    .nav-link.active::after {
+      width: 100%;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: .65s ease;
+    }
+
+    .reveal.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .marquee {
+      display: flex;
+      width: max-content;
+      animation: marquee 28s linear infinite;
+    }
+
+    @keyframes marquee {
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(-50%);
+      }
+    }
+
+    h1,
+    h2,
+    h3,
+    p,
+    a,
+    button,
+    summary,
+    span {
+      overflow-wrap: break-word;
+    }
+
+    summary {
+      list-style: none;
+    }
+
+    summary::-webkit-details-marker {
+      display: none;
+    }
+
+    @media (max-width: 639px) {
+      .container-x {
+        width: min(100% - 24px, 1280px);
+      }
+
+      h1 {
+        font-size: clamp(2rem, 9.5vw, 2.45rem) !important;
+        line-height: 1.08 !important;
+        letter-spacing: 0 !important;
+      }
+
+      h2 {
+        font-size: clamp(1.8rem, 8vw, 2.35rem) !important;
+        line-height: 1.12 !important;
+        letter-spacing: 0 !important;
+      }
+
+      h3 {
+        line-height: 1.18 !important;
+        letter-spacing: 0 !important;
+      }
+
+      p {
+        line-height: 1.65;
+      }
+
+      section {
+        padding-block: clamp(3.5rem, 12vw, 5rem);
+      }
+
+      .page-hero {
+        padding-top: 7rem !important;
+      }
+
+      article,
+      details,
+      blockquote,
+      #contact-modal .relative {
+        border-radius: 1.25rem !important;
+      }
+
+      .rounded-\[34px\],
+      .rounded-\[38px\] {
+        border-radius: 1.5rem !important;
+      }
+
+      #mobile-drawer {
+        left: 0.75rem;
+        right: 0.75rem;
+        top: 5.75rem;
+        max-height: calc(100dvh - 7rem);
+        overflow-y: auto;
+      }
+
+      .fixed.inset-x-4.bottom-4 {
+        left: 0.75rem !important;
+        right: 0.75rem !important;
+      }
+
+      summary {
+        align-items: flex-start !important;
+        gap: .75rem;
+        line-height: 1.35;
+      }
+
+      summary .material-symbols-outlined {
+        flex: 0 0 1.5rem;
+        width: 1.5rem;
+        overflow-wrap: normal;
+      }
+
+      .marquee>div {
+        gap: 1.75rem !important;
+        font-size: 1rem !important;
+        white-space: nowrap;
+      }
+    }
+
+    @media (max-width: 374px) {
+      .container-x {
+        width: min(100% - 20px, 1280px);
+      }
+
+      header nav {
+        height: 4.5rem !important;
+      }
+
+      header a.font-display {
+        font-size: 1.35rem !important;
+      }
+
+      h1 {
+        font-size: clamp(1.9rem, 10.5vw, 2.35rem) !important;
+      }
+
+      h2 {
+        font-size: clamp(1.6rem, 7.5vw, 2rem) !important;
+      }
+
+      .page-hero {
+        padding-top: 6rem !important;
+      }
+
+      .fixed.inset-x-4.bottom-4 {
+        gap: .5rem !important;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .marquee {
+        animation: none;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+
+      html {
+        scroll-behavior: auto;
+      }
+    }
+  </style>
+</head>
+
+<body class="antialiased selection:bg-lime selection:text-ink pb-24 md:pb-0 ">
+  <header id="site-header"
+    class="fixed inset-x-0 top-0 z-50 border-b border-white/20 bg-white/75 backdrop-blur-2xl transition-shadow">
+    <nav class="container-x flex h-20 items-center justify-between">
+      <a href="./index.html" class="font-display text-2xl font-extrabold tracking-[-0.04em] text-primary"
+        aria-label="InsightPlus bosh sahifa">InsightPlus</a>
+      <div class="hidden items-center gap-9 lg:flex">
+        <a class="nav-link text-sm font-semibold text-slate-700 hover:text-primary " href="./about.html">Biz
+          haqimizda</a>
+        <a class="nav-link text-sm font-semibold text-slate-700 hover:text-primary " href="./results.html">Natijalar</a>
+        <a class="nav-link text-sm font-semibold text-slate-700 hover:text-primary " href="./price.html">Narxlar</a>
+        <a class="nav-link text-sm font-semibold text-slate-700 hover:text-primary " href="./mockcefrcoming.html">Mock
+          CEFR</a>
+        <a class="nav-link text-sm font-semibold text-slate-700 hover:text-primary " href="./location.html">Manzil</a>
+      </div>
+      <div class="flex items-center gap-3">
+        <button data-open-contact
+          class="hidden rounded-2xl bg-ink px-6 py-3 text-sm font-bold text-white shadow-soft transition hover:-translate-y-0.5 hover:bg-primary focus:outline-none focus:ring-4 focus:ring-primary/20 sm:inline-flex">Bepul
+          maslahat</button>
+        <button id="mobile-menu-open"
+          class="grid h-11 w-11 place-items-center rounded-2xl border border-line bg-white text-ink transition hover:border-primary hover:text-primary focus:outline-none focus:ring-4 focus:ring-primary/20 lg:hidden"
+          aria-label="Menyuni ochish" aria-expanded="false">
+          <span class="material-symbols-outlined text-[28px]">menu</span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <div id="mobile-backdrop" class="fixed inset-0 z-[80] hidden bg-ink/45 backdrop-blur-sm"></div>
+  <aside id="mobile-drawer"
+    class="fixed left-4 right-4 top-24 z-[90] hidden rounded-[28px] border border-line bg-white p-6 shadow-2xl lg:hidden">
+    <div class="mb-7 flex items-center justify-between">
+      <a href="./index.html"
+        class="font-display text-2xl font-extrabold tracking-[-0.04em] text-primary">InsightPlus</a>
+      <button id="mobile-menu-close"
+        class="grid h-10 w-10 place-items-center rounded-xl bg-slate-100 focus:outline-none focus:ring-4 focus:ring-primary/20"
+        aria-label="Menyuni yopish">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+    </div>
+    <div class="grid gap-3">
+      <a class="mobile-link rounded-2xl px-4 py-3 font-bold text-slate-700 hover:bg-skysoft hover:text-primary"
+        href="./about.html">Biz haqimizda</a>
+      <a class="mobile-link rounded-2xl px-4 py-3 font-bold text-slate-700 hover:bg-skysoft hover:text-primary"
+        href="./results.html">Natijalar</a>
+      <a class="mobile-link rounded-2xl px-4 py-3 font-bold text-slate-700 hover:bg-skysoft hover:text-primary"
+        href="./price.html">Narxlar</a>
+      <a class="mobile-link rounded-2xl px-4 py-3 font-bold text-slate-700 hover:bg-skysoft hover:text-primary"
+        href="./mockcefrcoming.html">Mock CEFR</a>
+      <a class="mobile-link rounded-2xl px-4 py-3 font-bold text-slate-700 hover:bg-skysoft hover:text-primary"
+        href="./location.html">Manzil</a>
+      <button data-open-contact
+        class="mt-3 rounded-2xl bg-primary px-5 py-4 font-bold text-white shadow-glow focus:outline-none focus:ring-4 focus:ring-primary/20">Bog‘lanish</button>
+    </div>
+  </aside>
+
+  <main>
+    <section class="noise relative overflow-hidden pt-32 md:pt-36">
+      <div class="container-x grid items-center gap-12 pb-16 md:grid-cols-2 md:pb-24">
+        <div class="reveal text-center md:text-left">
+          <span
+            class="inline-flex items-center gap-2 rounded-full border border-primary/15 bg-white/80 px-4 py-2 text-xs font-extrabold uppercase tracking-[0.16em] text-primary shadow-sm">
+            <span class="h-2 w-2 rounded-full bg-lime ring-4 ring-lime/30"></span> Yangi davr taʼlimi
+          </span>
+          <h1
+            class="mt-6 font-display text-[42px] font-extrabold leading-[1.02] tracking-[-0.055em] text-ink sm:text-6xl lg:text-7xl">
+            Kelajakni biz bilan quring
+          </h1>
+          <p class="mx-auto mt-6 max-w-xl text-base leading-8 text-muted sm:text-lg md:mx-0">
+            IELTS, CEFR, IT va til kurslarini tajribali mentorlar, aniq reja va natijaga yo‘naltirilgan metodika orqali
+            o‘rganing.
+          </p>
+          <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center md:justify-start">
+            <a href="./price.html"
+              class="inline-flex h-14 items-center justify-center gap-2 rounded-2xl bg-primary px-7 font-bold text-white shadow-glow transition hover:-translate-y-0.5 hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-primary/25">
+              Kurslarni ko‘rish <span class="material-symbols-outlined">trending_flat</span>
+            </a>
+            <button data-open-contact
+              class="inline-flex h-14 items-center justify-center rounded-2xl border border-line bg-white px-7 font-bold text-ink shadow-sm transition hover:-translate-y-0.5 hover:border-primary hover:text-primary focus:outline-none focus:ring-4 focus:ring-primary/20">Bepul
+              sinov darsi</button>
+          </div>
+          <div
+            class="mt-10 grid grid-cols-3 gap-3 rounded-[28px] border border-white/70 bg-white/75 p-3 shadow-soft backdrop-blur-xl sm:max-w-xl">
+            <div class="rounded-2xl bg-white p-4 text-center">
+              <p class="font-display text-2xl font-extrabold text-primary">1200+</p>
+              <p class="mt-1 text-xs font-semibold text-muted">Talaba</p>
+            </div>
+            <div class="rounded-2xl bg-white p-4 text-center">
+              <p class="font-display text-2xl font-extrabold text-primary">8.0+</p>
+              <p class="mt-1 text-xs font-semibold text-muted">IELTS natija</p>
+            </div>
+            <div class="rounded-2xl bg-white p-4 text-center">
+              <p class="font-display text-2xl font-extrabold text-primary">92%</p>
+              <p class="mt-1 text-xs font-semibold text-muted">Maqsadga yetgan</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="reveal relative">
+          <div class="absolute -inset-6 rounded-[42px] bg-primary/10 blur-3xl"></div>
+          <div class="relative overflow-hidden rounded-[36px] border border-white bg-white p-3 shadow-glow">
+            <img src="./logobigimage.png" alt="InsightPlus o‘quv muhiti"
+              class="h-[280px] w-full rounded-[28px] object-cover sm:h-[380px] lg:h-[460px]" />
+            <div
+              class="absolute bottom-7 left-7 right-7 rounded-[24px] border border-white/60 bg-white/80 p-4 shadow-soft backdrop-blur-xl">
+              <div class="flex items-center gap-3">
+                <div class="grid h-12 w-12 place-items-center rounded-2xl bg-lime text-ink"><span
+                    class="material-symbols-outlined">verified</span></div>
+                <div>
+                  <p class="font-bold text-ink">Bepul daraja aniqlash</p>
+                  <p class="text-sm text-muted">Sizga mos guruh va o‘quv reja tanlanadi</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="overflow-hidden border-y border-primary/10 bg-primary py-6 text-white">
+      <div class="marquee">
+        <div class="flex items-center gap-12 px-6 font-display text-xl font-bold sm:text-2xl">
+          <span>IELTS 8+</span><span class="opacity-50">IT & Dasturlash</span><span>Rus tili</span><span
+            class="opacity-50">Ingliz tili</span><span>CEFR</span><span
+            class="opacity-50">B1–B2</span><span>C1–C2</span>
+        </div>
+        <div class="flex items-center gap-12 px-6 font-display text-xl font-bold sm:text-2xl">
+          <span>IELTS 8+</span><span class="opacity-50">IT & Dasturlash</span><span>Rus tili</span><span
+            class="opacity-50">Ingliz tili</span><span>CEFR</span><span
+            class="opacity-50">B1–B2</span><span>C1–C2</span>
+        </div>
+      </div>
+    </div>
+
+    <section id="courses" class="bg-white py-20 md:py-28">
+      <div class="container-x">
+        <div class="reveal mb-12 flex flex-col justify-between gap-5 md:flex-row md:items-end">
+          <div>
+            <span class="text-sm font-extrabold uppercase tracking-[0.16em] text-primary">Yo‘nalishlar</span>
+            <h2 class="mt-3 font-display text-4xl font-extrabold tracking-[-0.04em] sm:text-5xl">Maqsadingizga mos
+              kursni tanlang</h2>
+            <p class="mt-4 max-w-2xl text-muted">Har bir kurs aniq natija, mentor nazorati va amaliy mashg‘ulotlar
+              asosida tuzilgan.</p>
+          </div>
+          <a href="./price.html"
+            class="inline-flex items-center gap-2 font-bold text-primary hover:underline md:shrink-0">Narxlarni ko‘rish
+            <span class="material-symbols-outlined">north_east</span></a>
+        </div>
+
+        <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <article
+            class="reveal group rounded-[28px] border border-line bg-soft p-6 transition hover:-translate-y-2 hover:border-primary/40 hover:bg-white hover:shadow-soft">
+            <div class="mb-6 flex h-16 w-16 items-center justify-center rounded-3xl bg-[#FFB703] text-ink"><span
+                class="material-symbols-outlined text-4xl">language</span></div>
+            <span class="rounded-full bg-white px-3 py-1 text-xs font-bold text-primary">Barcha darajalar</span>
+            <h3 class="mt-5 font-display text-2xl font-bold tracking-[-0.03em]">Ingliz tili / IELTS</h3>
+            <p class="mt-3 min-h-[72px] text-sm leading-6 text-muted">Xalqaro sertifikat olish, speaking va writing
+              bo‘yicha kuchli tayyorgarlik.</p>
+            <div
+              class="mt-6 flex items-center justify-between border-t border-line pt-5 text-sm font-bold text-primary">
+              <span>6 oy</span><button data-open-contact class="hover:underline">Yozilish</button>
+            </div>
+          </article>
+
+          <article
+            class="reveal group rounded-[28px] border border-line bg-soft p-6 transition hover:-translate-y-2 hover:border-primary/40 hover:bg-white hover:shadow-soft">
+            <div class="mb-6 flex h-16 w-16 items-center justify-center rounded-3xl bg-[#B8F7D4] text-ink"><span
+                class="material-symbols-outlined text-4xl">translate</span></div>
+            <span class="rounded-full bg-white px-3 py-1 text-xs font-bold text-primary">Intensiv</span>
+            <h3 class="mt-5 font-display text-2xl font-bold tracking-[-0.03em]">Rus tili</h3>
+            <p class="mt-3 min-h-[72px] text-sm leading-6 text-muted">Muloqot, ish va biznes uchun sodda, amaliy va tez
+              natija beruvchi kurs.</p>
+            <div
+              class="mt-6 flex items-center justify-between border-t border-line pt-5 text-sm font-bold text-primary">
+              <span>4 oy</span><button data-open-contact class="hover:underline">Yozilish</button>
+            </div>
+          </article>
+
+          <article
+            class="reveal group rounded-[28px] border border-line bg-soft p-6 transition hover:-translate-y-2 hover:border-primary/40 hover:bg-white hover:shadow-soft">
+            <div class="mb-6 flex h-16 w-16 items-center justify-center rounded-3xl bg-[#FFADAD] text-ink"><span
+                class="material-symbols-outlined text-4xl">desktop_windows</span></div>
+            <span class="rounded-full bg-white px-3 py-1 text-xs font-bold text-primary">Boshlang‘ich</span>
+            <h3 class="mt-5 font-display text-2xl font-bold tracking-[-0.03em]">Kompyuter savodxonligi</h3>
+            <p class="mt-3 min-h-[72px] text-sm leading-6 text-muted">Office dasturlari, internet va kundalik raqamli
+              ko‘nikmalarni mukammal o‘rganing.</p>
+            <div
+              class="mt-6 flex items-center justify-between border-t border-line pt-5 text-sm font-bold text-primary">
+              <span>2 oy</span><button data-open-contact class="hover:underline">Yozilish</button>
+            </div>
+          </article>
+
+          <article
+            class="reveal group rounded-[28px] border border-line bg-soft p-6 transition hover:-translate-y-2 hover:border-primary/40 hover:bg-white hover:shadow-soft">
+            <div class="mb-6 flex h-16 w-16 items-center justify-center rounded-3xl bg-[#CDB4DB] text-ink"><span
+                class="material-symbols-outlined text-4xl">code</span></div>
+            <span class="rounded-full bg-white px-3 py-1 text-xs font-bold text-primary">Professional</span>
+            <h3 class="mt-5 font-display text-2xl font-bold tracking-[-0.03em]">IT & Dasturlash</h3>
+            <p class="mt-3 min-h-[72px] text-sm leading-6 text-muted">Frontend, backend va real portfolio loyihalari
+              orqali kasbga tayyorlaning.</p>
+            <div
+              class="mt-6 flex items-center justify-between border-t border-line pt-5 text-sm font-bold text-primary">
+              <span>9 oy</span><button data-open-contact class="hover:underline">Yozilish</button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-white py-16 md:py-24">
+      <div class="container-x">
+        <div class="reveal overflow-hidden rounded-[38px] bg-ink p-8 text-white shadow-soft md:p-12">
+          <div class="grid gap-10 lg:grid-cols-[1fr_0.9fr] lg:items-center">
+            <div>
+              <span
+                class="inline-flex items-center gap-2 rounded-full bg-lime px-4 py-2 text-xs font-extrabold uppercase tracking-[0.16em] text-ink">
+                <span class="h-2 w-2 rounded-full bg-primary"></span> Tez kunda
+              </span>
+              <h2 class="mt-6 font-display text-4xl font-extrabold tracking-[-0.04em] sm:text-5xl">
+                Mock CEFR platformasi ishga tushadi
+              </h2>
+              <p class="mt-5 max-w-2xl text-white/70">
+                CEFR darajangizni real imtihon formatida sinab ko‘ring. Reading, Listening, Writing va Speaking
+                bo‘yicha natija tahlili va tavsiyalar bitta platformada jamlanadi.
+              </p>
+              <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+                <a href="https://mock.insightplus.uz/" target="_blank" rel="noopener noreferrer"
+                  class="inline-flex h-14 items-center justify-center gap-2 rounded-2xl bg-primary px-7 font-bold text-white shadow-glow transition hover:-translate-y-0.5 hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-white/20">
+                  Platformani ko‘rish <span class="material-symbols-outlined">north_east</span>
+                </a>
+                <a href="./mockcefrcoming.html"
+                  class="inline-flex h-14 items-center justify-center rounded-2xl border border-white/20 px-7 font-bold text-white transition hover:-translate-y-0.5 hover:bg-white/10 focus:outline-none focus:ring-4 focus:ring-white/20">
+                  Batafsil
+                </a>
+              </div>
+              <p class="mt-5 text-sm font-semibold text-white/45">Subdomain loyiha: mock.insightplus.uz</p>
+            </div>
+
+            <div class="rounded-[28px] border border-white/10 bg-white/10 p-4 backdrop-blur md:p-5">
+              <div class="rounded-3xl bg-white p-5 text-ink shadow-soft">
+                <div class="flex items-center justify-between gap-4">
+                  <div>
+                    <p class="font-display text-2xl font-extrabold tracking-[-0.04em]">Mock CEFR</p>
+                    <p class="mt-1 text-sm text-muted">Daraja diagnostikasi</p>
+                  </div>
+                  <span class="rounded-full bg-lime px-3 py-1 text-xs font-extrabold text-ink">Beta</span>
+                </div>
+
+                <div class="mt-7 space-y-5">
+                  <div>
+                    <div class="mb-2 flex justify-between text-sm font-bold"><span>Reading</span><span>B2</span></div>
+                    <div class="h-3 overflow-hidden rounded-full bg-slate-100">
+                      <div class="h-full w-[78%] rounded-full bg-primary"></div>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="mb-2 flex justify-between text-sm font-bold"><span>Listening</span><span>C1</span></div>
+                    <div class="h-3 overflow-hidden rounded-full bg-slate-100">
+                      <div class="h-full w-[88%] rounded-full bg-lime"></div>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="mb-2 flex justify-between text-sm font-bold"><span>Writing</span><span>B2</span></div>
+                    <div class="h-3 overflow-hidden rounded-full bg-slate-100">
+                      <div class="h-full w-[72%] rounded-full bg-slate-900"></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="mt-7 grid grid-cols-2 gap-3">
+                  <div class="rounded-2xl bg-soft p-4">
+                    <p class="font-display text-2xl font-extrabold text-primary">4</p>
+                    <p class="mt-1 text-xs font-bold text-muted">Skill bo‘yicha test</p>
+                  </div>
+                  <div class="rounded-2xl bg-soft p-4">
+                    <p class="font-display text-2xl font-extrabold text-primary">24/7</p>
+                    <p class="mt-1 text-xs font-bold text-muted">Online kirish</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-20 md:py-28">
+      <div class="container-x grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
+        <div class="reveal">
+          <span class="text-sm font-extrabold uppercase tracking-[0.16em] text-primary">Nega aynan biz?</span>
+          <h2 class="mt-3 font-display text-4xl font-extrabold tracking-[-0.04em] sm:text-5xl">Taʼlim jarayoni natijaga
+            ishlaydi</h2>
+          <p class="mt-5 text-lg leading-8 text-muted">Har bir o‘quvchi boshlang‘ich darajadan yakuniy maqsadgacha
+            individual nazorat, feedback va aniq o‘quv yo‘li bilan boradi.</p>
+
+          <div class="mt-9 grid gap-4">
+            <div class="flex gap-4 rounded-[24px] border border-line bg-white p-5 shadow-sm">
+              <div class="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-primary text-white"><span
+                  class="material-symbols-outlined">verified_user</span></div>
+              <div>
+                <h3 class="font-bold">Sifatli metodika</h3>
+                <p class="mt-1 text-sm leading-6 text-muted">Xalqaro standartlar asosidagi darslar va muntazam progress
+                  monitoring.</p>
+              </div>
+            </div>
+            <div class="flex gap-4 rounded-[24px] border border-line bg-white p-5 shadow-sm">
+              <div class="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-primary text-white"><span
+                  class="material-symbols-outlined">psychology</span></div>
+              <div>
+                <h3 class="font-bold">Tajribali mentorlar</h3>
+                <p class="mt-1 text-sm leading-6 text-muted">Amaliy tajribaga ega ustozlar har bir o‘quvchi bilan
+                  ishlaydi.</p>
+              </div>
+            </div>
+            <div class="flex gap-4 rounded-[24px] border border-line bg-white p-5 shadow-sm">
+              <div class="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-primary text-white"><span
+                  class="material-symbols-outlined">track_changes</span></div>
+              <div>
+                <h3 class="font-bold">Aniq maqsad va nazorat</h3>
+                <p class="mt-1 text-sm leading-6 text-muted">Test, suhbat, uyga vazifa va natijalar haftalik tahlil
+                  qilinadi.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="reveal rounded-[34px] border border-line bg-white p-6 shadow-soft sm:p-8">
+          <div class="mb-8 flex items-center justify-between gap-5">
+            <div>
+              <h3 class="font-display text-3xl font-bold tracking-[-0.04em]">Muvaffaqiyat ko‘rsatkichlari</h3>
+              <p class="mt-2 text-sm text-muted">O‘quvchilarning umumiy progress indikatorlari</p>
+            </div>
+            <div class="grid h-14 w-14 shrink-0 place-items-center rounded-2xl bg-lime text-ink"><span
+                class="material-symbols-outlined">monitoring</span></div>
+          </div>
+
+          <div class="space-y-7">
+            <div>
+              <div class="mb-2 flex justify-between text-sm font-bold"><span>IELTS 7.0+ natijalar</span><span>85%</span>
+              </div>
+              <div class="h-3 overflow-hidden rounded-full bg-slate-100">
+                <div class="h-full w-[85%] rounded-full bg-primary"></div>
+              </div>
+            </div>
+            <div>
+              <div class="mb-2 flex justify-between text-sm font-bold"><span>O‘qishga kirganlar</span><span>92%</span>
+              </div>
+              <div class="h-3 overflow-hidden rounded-full bg-slate-100">
+                <div class="h-full w-[92%] rounded-full bg-lime"></div>
+              </div>
+            </div>
+            <div>
+              <div class="mb-2 flex justify-between text-sm font-bold"><span>Kursni yakunlash</span><span>78%</span>
+              </div>
+              <div class="h-3 overflow-hidden rounded-full bg-slate-100">
+                <div class="h-full w-[78%] rounded-full bg-slate-900"></div>
+              </div>
+            </div>
+          </div>
+
+          <blockquote class="mt-8 rounded-[24px] bg-soft p-6 text-muted">
+            “InsightPlus menga nafaqat bilim, balki o‘z kuchimga bo‘lgan ishonchni berdi.”
+            <footer class="mt-4 font-bold text-primary">— Sardor Axmedov, sobiq talaba</footer>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-primary py-20 text-white md:py-28">
+      <div class="container-x">
+        <div class="reveal mx-auto mb-14 max-w-3xl text-center">
+          <span class="text-sm font-extrabold uppercase tracking-[0.16em] text-lime">Jarayon</span>
+          <h2 class="mt-3 font-display text-4xl font-extrabold tracking-[-0.04em] sm:text-5xl">Muvaffaqiyatga 4 qadam
+          </h2>
+          <p class="mt-5 text-white/70">O‘quv jarayoni oddiy, tushunarli va natijaga yo‘naltirilgan.</p>
+        </div>
+        <div class="grid gap-5 md:grid-cols-4">
+          <div class="reveal rounded-[28px] border border-white/15 bg-white/10 p-6 backdrop-blur">
+            <div class="mb-6 font-display text-5xl font-extrabold text-lime">01</div>
+            <h3 class="font-bold">Murojaat qiling</h3>
+            <p class="mt-3 text-sm leading-6 text-white/70">Sayt, telefon yoki Telegram orqali bepul sinov darsiga
+              yoziling.</p>
+          </div>
+          <div class="reveal rounded-[28px] border border-white/15 bg-white/10 p-6 backdrop-blur">
+            <div class="mb-6 font-display text-5xl font-extrabold text-lime">02</div>
+            <h3 class="font-bold">Daraja aniqlash</h3>
+            <p class="mt-3 text-sm leading-6 text-white/70">Qisqa test va suhbat orqali bilim darajangiz aniqlanadi.</p>
+          </div>
+          <div class="reveal rounded-[28px] border border-white/15 bg-white/10 p-6 backdrop-blur">
+            <div class="mb-6 font-display text-5xl font-extrabold text-lime">03</div>
+            <h3 class="font-bold">Guruh tanlash</h3>
+            <p class="mt-3 text-sm leading-6 text-white/70">Jadvalingiz va maqsadingizga mos guruh tavsiya qilinadi.</p>
+          </div>
+          <div class="reveal rounded-[28px] border border-white/15 bg-white/10 p-6 backdrop-blur">
+            <div class="mb-6 font-display text-5xl font-extrabold text-lime">04</div>
+            <h3 class="font-bold">O‘qishni boshlash</h3>
+            <p class="mt-3 text-sm leading-6 text-white/70">Mentorlar bilan reja bo‘yicha natijaga qarab harakat
+              qilasiz.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-white py-20 md:py-28">
+      <div class="container-x">
+        <div class="reveal mx-auto mb-12 max-w-3xl text-center">
+          <span class="text-sm font-extrabold uppercase tracking-[0.16em] text-primary">Fikrlar</span>
+          <h2 class="mt-3 font-display text-4xl font-extrabold tracking-[-0.04em] sm:text-5xl">Talabalarimiz nima deydi?
+          </h2>
+        </div>
+        <div class="grid gap-5 md:grid-cols-3">
+          <article class="reveal rounded-[28px] border border-line bg-soft p-7 shadow-sm">
+            <div class="mb-5 flex text-primary"><span class="material-symbols-outlined"
+                style="font-variation-settings:'FILL' 1">star</span><span class="material-symbols-outlined"
+                style="font-variation-settings:'FILL' 1">star</span><span class="material-symbols-outlined"
+                style="font-variation-settings:'FILL' 1">star</span><span class="material-symbols-outlined"
+                style="font-variation-settings:'FILL' 1">star</span><span class="material-symbols-outlined"
+                style="font-variation-settings:'FILL' 1">star</span></div>
+            <p class="leading-7 text-slate-700">“IELTS kurslariga qatnashdim va 7.5 natija oldim. Ustozlarning
+              yondashuvi juda professional.”</p>
+            <div class="mt-7 border-t border-line pt-5">
+              <p class="font-bold">Azizbek G‘ofurov</p>
+              <p class="text-sm text-muted">IELTS 7.5</p>
+            </div>
+          </article>
+          <article class="reveal rounded-[28px] border border-line bg-soft p-7 shadow-sm">
+            <div class="mb-5 flex text-primary"><span class="material-symbols-outlined"
+                style="font-variation-settings:'FILL' 1">star</span><span class="material-symbols-outlined"
+                style="font-variation-settings:'FILL' 1">star</span><span class="material-symbols-outlined"
+                style="font-variation-settings:'FILL' 1">star</span><span class="material-symbols-outlined"
+                style="font-variation-settings:'FILL' 1">star</span><span class="material-symbols-outlined"
+                style="font-variation-settings:'FILL' 1">star</span></div>
+            <p class="leading-7 text-slate-700">“IT kursida o‘qib, birinchi portfoliomni yaratdim. Mentorimiz har doim
+              yordamga tayyor.”</p>
+            <div class="mt-7 border-t border-line pt-5">
+              <p class="font-bold">Malika Ismoilova</p>
+              <p class="text-sm text-muted">Frontend portfolio</p>
+            </div>
+          </article>
+          <article class="reveal rounded-[28px] border border-line bg-soft p-7 shadow-sm">
+            <div class="mb-5 flex text-primary"><span class="material-symbols-outlined"
+                style="font-variation-settings:'FILL' 1">star</span><span class="material-symbols-outlined"
+                style="font-variation-settings:'FILL' 1">star</span><span class="material-symbols-outlined"
+                style="font-variation-settings:'FILL' 1">star</span><span class="material-symbols-outlined"
+                style="font-variation-settings:'FILL' 1">star</span><span class="material-symbols-outlined"
+                style="font-variation-settings:'FILL' 1">star</span></div>
+            <p class="leading-7 text-slate-700">“CEFR B2 darajasiga ega bo‘ldim. Darslar foydali va juda tushunarli
+              tarzda o‘tiladi.”</p>
+            <div class="mt-7 border-t border-line pt-5">
+              <p class="font-bold">Jamshid Karimov</p>
+              <p class="text-sm text-muted">CEFR B2</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-20 md:py-28">
+      <div class="container-x grid gap-5 lg:grid-cols-2">
+        <div class="reveal rounded-[34px] bg-ink p-8 text-white shadow-soft md:p-12">
+          <span class="text-sm font-extrabold uppercase tracking-[0.16em] text-lime">FAQ</span>
+          <h2 class="mt-3 font-display text-4xl font-extrabold tracking-[-0.04em]">Ko‘p so‘raladigan savollar</h2>
+          <p class="mt-5 text-white/65">Yozilishdan oldin eng kerakli savollarga javoblar.</p>
+        </div>
+        <div class="reveal space-y-3">
+          <details class="group rounded-[24px] border border-line bg-white p-5 shadow-sm" open>
+            <summary class="flex cursor-pointer list-none items-center justify-between font-bold">Bepul sinov darsi
+              bormi?<span class="material-symbols-outlined transition group-open:rotate-180">expand_more</span>
+            </summary>
+            <p class="mt-3 text-sm leading-6 text-muted">Ha, avval darajangiz aniqlanadi va sizga mos kurs tavsiya
+              qilinadi.</p>
+          </details>
+          <details class="group rounded-[24px] border border-line bg-white p-5 shadow-sm">
+            <summary class="flex cursor-pointer list-none items-center justify-between font-bold">Qaysi darajadan
+              boshlash mumkin?<span
+                class="material-symbols-outlined transition group-open:rotate-180">expand_more</span></summary>
+            <p class="mt-3 text-sm leading-6 text-muted">Boshlang‘ichdan advanced darajagacha guruhlar mavjud.</p>
+          </details>
+          <details class="group rounded-[24px] border border-line bg-white p-5 shadow-sm">
+            <summary class="flex cursor-pointer list-none items-center justify-between font-bold">Darslar qanday nazorat
+              qilinadi?<span class="material-symbols-outlined transition group-open:rotate-180">expand_more</span>
+            </summary>
+            <p class="mt-3 text-sm leading-6 text-muted">Test, uyga vazifa, mentor feedbacki va progress monitoring
+              orqali.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="px-4 pb-20 md:pb-28">
+      <div
+        class="reveal container-x overflow-hidden rounded-[38px] bg-primary p-8 text-center text-white shadow-glow md:p-16">
+        <span
+          class="inline-flex rounded-full bg-white/15 px-4 py-2 text-xs font-extrabold uppercase tracking-[0.16em] text-lime">Birinchi
+          qadam</span>
+        <h2 class="mx-auto mt-5 max-w-3xl font-display text-4xl font-extrabold tracking-[-0.04em] sm:text-6xl">Bugunoq
+          bepul sinov darsiga yoziling</h2>
+        <p class="mx-auto mt-5 max-w-2xl text-white/75">Darajangizni aniqlaymiz, mos guruh tanlaymiz va o‘quv rejangizni
+          tushuntiramiz.</p>
+        <div class="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+          <button data-open-contact
+            class="inline-flex h-14 items-center justify-center rounded-2xl bg-lime px-7 font-extrabold text-ink transition hover:-translate-y-0.5 focus:outline-none focus:ring-4 focus:ring-white/30">Joy
+            band qilish</button>
+          <a href="https://t.me/rizayev_english" target="_blank" rel="noopener noreferrer"
+            class="inline-flex h-14 items-center justify-center rounded-2xl border border-white/25 px-7 font-bold text-white transition hover:-translate-y-0.5 hover:bg-white/10 focus:outline-none focus:ring-4 focus:ring-white/20">Telegram
+            orqali yozish</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-line bg-white py-12 md:py-16">
+    <div class="container-x">
+      <div class="grid gap-10 md:grid-cols-12">
+        <div class="md:col-span-5">
+          <a href="./index.html"
+            class="font-display text-2xl font-extrabold tracking-[-0.04em] text-primary">InsightPlus</a>
+          <p class="mt-5 max-w-md leading-7 text-muted">Zamonaviy taʼlim platformasi orqali xalqaro darajadagi bilim va
+            ko‘nikmalarni qulay va samarali tarzda o‘rganing.</p>
+        </div>
+        <div class="md:col-span-2">
+          <h5 class="mb-5 text-xs font-extrabold uppercase tracking-[0.18em] text-primary">Yo‘nalishlar</h5>
+          <ul class="space-y-3 text-sm font-semibold text-muted">
+            <li><a class="hover:text-primary" href="./index.html#courses">Ingliz tili</a></li>
+            <li><a class="hover:text-primary" href="./index.html#courses">IT va dasturlash</a></li>
+            <li><a class="hover:text-primary" href="./index.html#courses">Rus tili</a></li>
+            <li><a class="hover:text-primary" href="./index.html#courses">Kompyuter savodxonligi</a></li>
+          </ul>
+        </div>
+        <div class="md:col-span-2">
+          <h5 class="mb-5 text-xs font-extrabold uppercase tracking-[0.18em] text-primary">Kompaniya</h5>
+          <ul class="space-y-3 text-sm font-semibold text-muted">
+            <li><a class="hover:text-primary" href="./about.html">Biz haqimizda</a></li>
+            <li><a class="hover:text-primary" href="./location.html">Manzil</a></li>
+            <li><a class="hover:text-primary" href="./price.html">Narxlar</a></li>
+            <li><a class="hover:text-primary" href="./results.html">Natijalar</a></li>
+          </ul>
+        </div>
+        <div class="md:col-span-3">
+          <h5 class="mb-5 text-xs font-extrabold uppercase tracking-[0.18em] text-primary">Ijtimoiy tarmoqlar</h5>
+          <div class="flex gap-3"><a href="https://www.facebook.com/insightplusedu" target="_blank"
+              rel="noopener noreferrer" aria-label="Facebook"
+              class="grid h-11 w-11 place-items-center rounded-2xl border border-line text-slate-700 transition hover:border-primary hover:bg-primary hover:text-white"><span
+                class="text-sm font-bold">f</span></a><a href="https://www.instagram.com/insightplusedu" target="_blank"
+              rel="noopener noreferrer" aria-label="Instagram"
+              class="grid h-11 w-11 place-items-center rounded-2xl border border-line text-slate-700 transition hover:border-primary hover:bg-primary hover:text-white"><span
+                class="material-symbols-outlined">photo_camera</span></a><a href="https://t.me/insightplusedu"
+              target="_blank" rel="noopener noreferrer" aria-label="Telegram"
+              class="grid h-11 w-11 place-items-center rounded-2xl border border-line text-slate-700 transition hover:border-primary hover:bg-primary hover:text-white"><span
+                class="material-symbols-outlined">send</span></a></div>
+        </div>
+      </div>
+      <div
+        class="mt-12 flex flex-col items-center justify-between gap-4 border-t border-line pt-8 text-sm font-semibold text-muted md:flex-row">
+        <p>© 2026 InsightPlus Education. Barcha huquqlar himoyalangan.</p>
+        <div class="flex gap-5"><a class="hover:text-primary" href="#">Maxfiylik siyosati</a><a
+            class="hover:text-primary" href="#">Foydalanish shartlari</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <div
+    class="fixed inset-x-4 bottom-4 z-40 flex gap-3 rounded-[24px] border border-line bg-white/90 p-2 shadow-2xl backdrop-blur-xl md:hidden">
+    <button data-open-contact
+      class="flex-1 rounded-2xl bg-primary py-3 text-sm font-extrabold text-white">Bog‘lanish</button>
+    <a href="https://t.me/rizayev_english" target="_blank" rel="noopener noreferrer"
+      class="flex-1 rounded-2xl bg-lime py-3 text-center text-sm font-extrabold text-ink">Telegram</a>
+  </div>
+
+  <div id="contact-modal" class="fixed inset-0 z-[200] hidden items-center justify-center p-4" role="dialog"
+    aria-modal="true" aria-labelledby="contact-title">
+    <div data-close-contact class="absolute inset-0 bg-ink/50 backdrop-blur-sm"></div>
+    <div class="relative w-full max-w-md rounded-[32px] border border-line bg-white p-6 shadow-2xl md:p-8">
+      <button data-close-contact
+        class="absolute right-4 top-4 grid h-10 w-10 place-items-center rounded-2xl bg-slate-100 text-ink transition hover:bg-primary hover:text-white focus:outline-none focus:ring-4 focus:ring-primary/20"
+        aria-label="Modalni yopish"><span class="material-symbols-outlined">close</span></button>
+      <div class="mx-auto mb-6 grid h-16 w-16 place-items-center rounded-3xl bg-lime text-primary"><span
+          class="material-symbols-outlined text-3xl">headset_mic</span></div>
+      <h3 id="contact-title" class="text-center font-display text-3xl font-extrabold tracking-[-0.04em]">Bog‘lanish</h3>
+      <p class="mx-auto mt-3 max-w-xs text-center text-sm leading-6 text-muted">Savollaringiz bormi? Biz bilan
+        bog‘laning, darhol javob beramiz.</p>
+      <div class="mt-7 grid gap-3">
+        <a href="tel:+998908124341"
+          class="flex items-center justify-center gap-3 rounded-2xl border border-line bg-soft py-4 font-extrabold text-primary transition hover:-translate-y-0.5 hover:bg-white hover:shadow-soft"><span
+            class="material-symbols-outlined">call</span> +998 90 812 43 41</a>
+        <a href="https://t.me/rizayev_english" target="_blank" rel="noopener noreferrer"
+          class="flex items-center justify-center gap-3 rounded-2xl bg-[#2AABEE] py-4 font-extrabold text-white shadow-lg shadow-[#2AABEE]/25 transition hover:-translate-y-0.5 hover:bg-[#2298D6]"><span
+            class="material-symbols-outlined">send</span> Telegram orqali yozish</a>
+      </div>
+    </div>
+  </div>
+  <script src="./app.js"></script>
+</body>
+
+</html>
